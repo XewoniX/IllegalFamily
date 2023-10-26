@@ -44,9 +44,6 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
         val button = findViewById<Button>(R.id.btnZalogujPrzezGoogle)
         button.setOnClickListener {
             val signInIntent = mGoogleSignInClient.signInIntent
-
-
-
             val user: FirebaseUser? = auth.currentUser
 
             if (user != null) {

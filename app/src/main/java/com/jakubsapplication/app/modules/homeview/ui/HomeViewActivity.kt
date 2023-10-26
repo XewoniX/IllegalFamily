@@ -30,14 +30,14 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
     val username = findViewById<TextView>(R.id.txtWitajUsernam)
 
         // Sprawdź, czy użytkownik jest zalogowany
-    if (user != null) {
-      val displayName = user.displayName
+      if (user != null) {
+      val displayName = user?.displayName
       if (displayName != null) {
         // Rozdziel imię i nazwisko (jeśli dostępne)
         val nameParts = displayName.split(" ")
         val firstName = nameParts[0]
         username.text = "$firstName, witaj w Illegal Family Brodnica!"
-      } else {
+        } else {
         username.text = "Witaj w Illegal Family Brodnica!"
       }
     }
