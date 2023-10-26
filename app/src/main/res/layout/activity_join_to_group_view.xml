@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="joinToGroupViewVM" type="com.jakubsapplication.app.modules.jointogroupview.data.viewmodel.JoinToGroupViewVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStack"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_900">
+        <FrameLayout android:id="@+id/frameStacklogoone"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" style="@style/groupStylegray_900">
+
+
+            <FrameLayout android:id="@+id/frameStackbackground"
+                android:layout_gravity="start"
+                android:layout_height="match_parent" android:layout_width="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/camera_preview"
+                    style="@style/groupStylecornerRadius"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="@dimen/_40pxh"
+                    android:layout_marginTop="@dimen/_450pxv"
+                    android:layout_marginEnd="@dimen/_40pxh"
+                    android:layout_marginBottom="@dimen/_287pxv"
+                    android:orientation="vertical" />
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+</layout>

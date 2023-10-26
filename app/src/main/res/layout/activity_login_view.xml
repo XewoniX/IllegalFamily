@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="loginViewVM" type="com.jakubsapplication.app.modules.loginview.data.viewmodel.LoginViewVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStacklogoone"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_900">
+        <FrameLayout android:id="@+id/frameLoginView"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" style="@style/groupStylegray_900">
+            <FrameLayout android:id="@+id/frameCarlogo"
+                android:layout_gravity="top|start"
+                android:layout_height="@dimen/_318pxv"
+                android:layout_marginBottom="@dimen/_10pxv" android:layout_width="match_parent">
+                <ImageView android:id="@+id/imageLogoOne"
+                    android:layout_gravity="top|start"
+                    android:layout_height="@dimen/_284pxv"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    imageRes="@{@drawable/img_logo1}"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_logo1"/>
+
+                <ImageView
+                    android:id="@+id/imageRectangleTwo"
+                    imageRes="@{@drawable/img_rectangle2}"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginTop="@dimen/_50pxv"
+                    android:layout_marginBottom="@dimen/_15pxv"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_rectangle2" />
+            </FrameLayout>
+            <FrameLayout android:id="@+id/frameStackbackground"
+                android:layout_gravity="start"
+                android:layout_height="match_parent" android:layout_width="match_parent">
+                <ImageView android:id="@+id/imageBackground"
+                    android:layout_gravity="top|start"
+                    android:layout_height="@dimen/_600pxv"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    imageRes="@{@drawable/img_background}"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+
+                <LinearLayout
+                    android:id="@+id/qrScanner"
+                    style="@style/groupStylecornerRadius"
+                    android:layout_width="match_parent"
+                    android:layout_height="182dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_40pxh"
+                    android:layout_marginTop="@dimen/_400pxv"
+                    android:layout_marginEnd="@dimen/_40pxh"
+                    android:layout_marginBottom="@dimen/_287pxv"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnZalogujPrzezGoogle"
+                        style="@style/btnGradientRoundedOutline"
+                        android:layout_width="match_parent"
+                        android:layout_height="156dp"
+                        android:layout_marginTop="@dimen/_20pxv"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@string/msg_zaloguj_przez_g"
+                        android:textAllCaps="false"
+                        android:textSize="25sp"
+                        tools:text="@string/msg_zaloguj_przez_g" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtAbydoczydo"
+                    style="@style/txtInterbold15"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginStart="@dimen/_42pxh"
+                    android:layout_marginTop="@dimen/_300pxv"
+                    android:layout_marginEnd="@dimen/_42pxh"
+                    android:layout_marginBottom="@dimen/_392pxv"
+                    android:gravity="top|center"
+                    android:text="Aby dołączyć do społeczności zaloguj się, a następnie zeskanuj kod QR"
+                    android:textAllCaps="true"
+                    android:visibility="visible"
+                    tools:ignore="TextSizeCheck"
+                    tools:text="@string/msg_aby_do_czy_do" />
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="chatViewVM" type="com.jakubsapplication.app.modules.chatview.data.viewmodel.ChatViewVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStack"
+        android:layout_height="match_parent" android:layout_width="match_parent">
+        <FrameLayout android:id="@+id/frameStackbackground"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" style="@style/groupStyle">
+
+            <LinearLayout android:id="@+id/linearColumnhome"
+                android:layout_gravity="start"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linearColumnlineseven"
+                    android:layout_width="match_parent"
+                    android:layout_height="744dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/linearColumnczatgrupowy"
+                        style="@style/groupStylewhite_A700_26cornerRadius"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtCzatgrupowy"
+                            style="@style/txtInterbold20"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_15pxh"
+                            android:layout_marginTop="@dimen/_23pxv"
+                            android:layout_marginEnd="@dimen/_15pxh"
+                            android:layout_marginBottom="@dimen/_21pxv"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:singleLine="true"
+                            android:text="@{chatViewVM.chatViewModel.txtCzatgrupowy}"
+                            android:textAllCaps="true"
+                            tools:text="@string/lbl_czat_grupowy" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/lineLineSeven"
+                        android:layout_width="@dimen/_360pxh"
+                        android:layout_height="@dimen/_3pxv"
+                        android:layout_gravity="start"
+                        android:background="@drawable/rectangle_gradient_s_orange_400_e_green_a400_f8" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnCzeWSobotJakiSpocik"
+                        style="@style/btnGradientRounded"
+                        android:layout_width="@dimen/_250pxh"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginTop="@dimen/_11pxv"
+                        android:layout_marginEnd="@dimen/_15pxh"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_20pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_21pxh"
+                        android:paddingBottom="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@string/msg_cze_w_sobot"
+                        android:textAllCaps="true"
+                        tools:text="@string/msg_cze_w_sobot" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSiema"
+                        style="@style/btnGradientRounded_1"
+                        android:layout_width="@dimen/_78pxh"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginTop="@dimen/_14pxv"
+                        android:layout_marginEnd="@dimen/_15pxh"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_19pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_20pxh"
+                        android:paddingBottom="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@string/lbl_siema"
+                        android:textAllCaps="true"
+                        tools:text="@string/lbl_siema" />
+
+                    <TextView
+                        android:id="@+id/txtTextBorder"
+                        style="@style/txtGradientRounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginTop="@dimen/_14pxv"
+                        android:layout_marginEnd="@dimen/_15pxh"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:paddingStart="@dimen/_22pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_22pxh"
+                        android:paddingBottom="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@{chatViewVM.chatViewModel.txtTextBorder}"
+                        android:textAllCaps="true"
+                        tools:text="@string/msg_tak_spocik_zacz" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnWJakimMiejscuOne"
+                        style="@style/btnGradientRounded"
+                        android:layout_width="@dimen/_149pxh"
+                        android:layout_height="@dimen/_40pxv"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginTop="@dimen/_14pxv"
+                        android:layout_marginEnd="@dimen/_15pxh"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_14pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_14pxh"
+                        android:paddingBottom="@dimen/_12pxv"
+                        android:singleLine="true"
+                        android:text="@string/msg_w_jakim_miejscu"
+                        android:textAllCaps="true"
+                        tools:text="@string/msg_w_jakim_miejscu" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/txtSolidRoundedOutline"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/_10pxv"
+            android:layout_marginRight="@dimen/_60pxv"
+            android:layout_marginBottom="@dimen/_75pxv"
+            android:lineSpacingExtra="8sp"
+            android:singleLine="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:typeface="normal" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingBtnFloatingactionbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_106pxv"
+            android:layout_marginEnd="@dimen/_5pxh"
+            android:layout_marginBottom="@dimen/_87pxv"
+            android:backgroundTint="@color/white_A700_26"
+            app:fabCustomSize="@dimen/_40pxh"
+            app:srcCompat="@drawable/img_send"
+            app:tint="@color/white_A700" />
+    </FrameLayout>
+</layout>

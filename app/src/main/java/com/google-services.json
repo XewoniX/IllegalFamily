@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086114106844",
+    "project_id": "illegal-night",
+    "storage_bucket": "illegal-night.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086114106844:android:8211f8f9fec1bcf9c55319",
+        "android_client_info": {
+          "package_name": "com.jakubsapplication.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTaJ9Qqt5r6XHD52_tBms1-ePbRBY3ZoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

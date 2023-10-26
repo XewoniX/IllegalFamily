@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+<color name="purple_200">#FFBB86FC</color>
+<color name="purple_500">#FF6200EE</color>
+<color name="purple_700">#FF3700B3</color>
+<color name="teal_200">#FF03DAC5</color>
+<color name="teal_700">#FF018786</color>
+<color name="black">#FF000000</color>
+<color name="white">#FFFFFFFF</color>
+<color name="cyan_A202">#00fff0</color>
+<color name="cyan_A201">#05f9ef</color>
+<color name="cyan_A200">#00ffef</color>
+<color name="orange_400_b2">#b2ffa217</color>
+<color name="gray_900_00">#00191919</color>
+<color name="purple_A400_26">#26ff00e5</color>
+<color name="gray_900">#191919</color>
+<color name="orange_400_26">#26ffa217</color>
+<color name="bluegray_100">#d9d9d9</color>
+<color name="green_A400_f8">#f800ff88</color>
+<color name="cyan_A200_42">#4200ffef</color>
+<color name="green_A400_b2">#b200ff84</color>
+<color name="orange_400">#ffa217</color>
+<color name="cyan_A200_59">#5900ffef</color>
+<color name="green_A400">#00ff84</color>
+<color name="cyan_A200_26">#2605f9ef</color>
+<color name="purple_A400_b2">#b2ff00e5</color>
+<color name="white_A700_26">#26ffffff</color>
+<color name="purple_A400">#ff00e5</color>
+<color name="cyan_A200_b2">#b200ffef</color>
+ <color name="indigo_300_00">#007688ea</color>
+<color name="white_A700">#ffffff</color>
+<color name="green_A400_26">#2600ff88</color>
+</resources>

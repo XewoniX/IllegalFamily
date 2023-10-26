@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="votingViewVM" type="com.jakubsapplication.app.modules.votingview.data.viewmodel.VotingViewVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStackbackground"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStyle">
+
+        <FrameLayout
+            android:id="@+id/frameMenu"
+            android:layout_width="@dimen/_359pxh"
+            android:layout_height="@dimen/_95pxv"
+            android:layout_gravity="bottom">
+
+            <FrameLayout
+                android:id="@+id/frameBottombar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/_18pxh"
+                android:layout_marginEnd="@dimen/_18pxh"
+                android:gravity="center_horizontal">
+
+                <LinearLayout
+                    android:id="@+id/linearRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_marginBottom="@dimen/_5pxv"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linearRowhome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_weight="0.49"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageHome"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_8pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_home"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_home" />
+
+                        <ImageView
+                            android:id="@+id/imageMap"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_44pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_map"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_map" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearRowlineone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_weight="0.49"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:id="@+id/frameCheckringligh"
+                            style="@style/groupStylecornerRadius_2"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxv"
+                            android:layout_marginStart="@dimen/_70pxv"
+                            android:layout_marginTop="@dimen/_8pxv"
+                            android:layout_marginBottom="@dimen/_5pxv">
+
+                            <ImageView
+                                android:id="@+id/imageLineOne"
+                                android:layout_width="@dimen/_13pxh"
+                                android:layout_height="@dimen/_10pxh"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_10pxv"
+                                android:layout_marginBottom="@dimen/_10pxv"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_line1"
+                                tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
+                                tools:src="@drawable/img_line1" />
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/imageUser"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_38pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_marginEnd="@dimen/_5pxh"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_user"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_user" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameStacksubtract"
+                android:layout_width="@dimen/_359pxh"
+                android:layout_height="@dimen/_80pxv"
+                android:layout_gravity="bottom|start"
+                android:layout_marginTop="@dimen/_10pxv">
+
+                <ImageView
+                    android:id="@+id/imageSubtract"
+                    imageRes="@{@drawable/img_subtract}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40pxh"
+                    android:layout_gravity="bottom|start"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_subtract" />
+
+                <ImageView
+                    android:id="@+id/imageLineFour"
+                    android:layout_width="@dimen/_31pxh"
+                    android:layout_height="@dimen/_3pxh"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_marginEnd="@dimen/_87pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_line4"
+                    tools:ignore="ContentDescription,ImageContrastCheck"
+                    tools:src="@drawable/img_line4" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/viewEllipseSix"
+                android:layout_width="@dimen/_67pxh"
+                android:layout_height="@dimen/_65pxh"
+                android:layout_gravity="bottom|center"
+                android:layout_marginStart="@dimen/_144pxh"
+                android:layout_marginEnd="@dimen/_144pxh"
+                android:background="@drawable/rectangle_gradient_s_purple_a400_26_c_purple_a400_26_e_orange_400_26_radius_30" />
+
+            <ImageView
+                android:id="@+id/imageMenu"
+                android:layout_width="@dimen/_27pxh"
+                android:layout_height="@dimen/_27pxh"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="@dimen/_165pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_marginEnd="@dimen/_165pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_menu"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_menu" />
+        </FrameLayout>
+
+        <ImageView android:id="@+id/imageBackground"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            imageRes="@{@drawable/img_background}"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+
+        <LinearLayout
+            android:id="@+id/linearColumnhome"
+            android:layout_width="match_parent"
+            android:layout_height="745dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_marginEnd="@dimen/_1pxh"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtGosowanie"
+                style="@style/txtInterbold32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginStart="@dimen/_30pxh"
+                android:layout_marginTop="@dimen/_15pxh"
+                android:layout_marginEnd="@dimen/_30pxh"
+                android:layout_marginBottom="@dimen/_50pxh"
+                android:ellipsize="end"
+                android:gravity="top"
+                android:singleLine="true"
+                android:text="@{votingViewVM.votingViewModel.txtGosowanie}"
+                android:textAllCaps="true"
+                tools:text="@string/lbl_g_osowanie" />
+
+            <LinearLayout
+                android:id="@+id/linearMessageboxes"
+                style="@style/groupStylewhite_A700_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtCzychceciespo"
+                    style="@style/txtInterbold20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_45pxh"
+                    android:layout_marginTop="@dimen/_39pxv"
+                    android:layout_marginEnd="@dimen/_45pxh"
+                    android:layout_marginBottom="@dimen/_37pxv"
+                    android:gravity="center_horizontal"
+                    android:text="@{votingViewVM.votingViewModel.txtCzychceciespo}"
+                    android:textAllCaps="true"
+                    tools:text="@string/msg_czy_chcecie_spo" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTak"
+                style="@style/btnGradientRoundedOutline_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_10pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_10pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_tak"
+                android:textAllCaps="true"
+                tools:text="@string/lbl_tak" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNie"
+                style="@style/btnGradientRoundedOutline_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_10pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_10pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_nie"
+                android:textAllCaps="true"
+                tools:text="@string/lbl_nie" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</layout>

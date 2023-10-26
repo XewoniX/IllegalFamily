@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">Illegal Family Brodnica - Night Ride</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+<string name="lbl_czat_grupowy">Czat grupowy</string>
+<string name="msg_nocna_jazda_sta">Nocna jazda start:
+
+16.09.2023, godz.21:00, 
+Ul. Gajdy 1, 87-300 Brodnica,
+
+dla fanów motoryzacji, obecność obowiązkowa !!!
+Pamiętajmy o przestrzeganiu regulaminu !!!
+
+ </string>
+<string name="msg_zapraszam_do_za">Zapraszam do zakładki \u201cgłosowania\u201d abyście wy zdecydowali kiedy odbędzie się kolejny spot.</string>
+<string name="msg_czy_chcecie_spo">Czy chcecie spota w najbliższą sobotę 16.09.2023 ???</string>
+<string name="lbl_zeskanuj_kod_qr">Zeskanuj kod QR</string>
+<string name="lbl_siema">siema</string>
+<string name="msg_nocna_jazda_sta2">Nocna jazda start:
+
+16.09.2023, godz.21:00, 
+Ul. Gajdy 1, 87-300 Brodnica,
+
+</string>
+<string name="lbl_tekst">tekst ...</string>
+<string name="lbl_zarejstruj_si">Zarejstruj się</string>
+<string name="msg_tak_spocik_zacz">Tak spocik zaczyna się o 21:00</string>
+<string name="lbl_tu_b_dzie_mapa">TU będzie
+mapa</string>
+<string name="msg_dodatkowe_funkc">dodatkowe funkcjonalności - wkrótce</string>
+<string name="msg_cze_w_sobot">Cześć, w sobotę jakiś spocik ?</string>
+<string name="msg_aby_do_czy_do">Aby dołączyć do społeczności zeskanuj kod QR</string>
+<string name="msg_uwaga_konkurs">Uwaga Konkurs,
+Nagroda to bon w wysokości 300 zł do wykorzystania na stacji paliw orlen,
+szczegóły na facebook\u2019u !!!</string>
+<string name="lbl_tak">Tak</string>
+<string name="msg_zaloguj_przez_e">Zaloguj przez e-mail</string>
+<string name="msg_zaloguj_przez_f">Zaloguj przez Facebooka</string>
+<string name="msg_zaloguj_przez_g">Uruchom aplikacje</string>
+<string name="msg_illegal_night_r">Illegal night riders</string>
+<string name="msg_witaj_usernam">Witaj, {Username} w
+Illegal familly Brodnica !!!</string>
+<string name="lbl_username">Username</string>
+<string name="lbl_g_osowanie">Głosowanie:</string>
+<string name="msg_dla_fan_w_motor">dla fanów motoryzacji, obecność obowiązkowa !!!
+Pamiętajmy o przestrzeganiu regulaminu !!!
+</string>
+<string name="lbl_nie">nie</string>
+<string name="msg_w_jakim_miejscu">W jakim miejscu ?</string>
+<string name="lbl_oznacz_patrol">Oznacz patrol</string>
+</resources>

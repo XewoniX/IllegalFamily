@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="scanQrCodeViewVM" type="com.jakubsapplication.app.modules.scanqrcodeview.data.viewmodel.ScanQrCodeViewVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStackbackground"
+        android:layout_height="match_parent" android:layout_width="match_parent">
+        <FrameLayout android:id="@+id/frameScanQRcodeVi"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" style="@style/groupStylegray_900">
+            <ImageView android:id="@+id/imageBackground"
+                android:layout_gravity="start"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_background}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+            <FrameLayout android:id="@+id/frameScancameravie"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_760pxv"
+                android:layout_marginBottom="@dimen/_25pxv"
+                android:layout_marginEnd="@dimen/_15pxh"
+                android:layout_marginStart="@dimen/_15pxh"
+                android:layout_marginTop="@dimen/_15pxv" android:layout_width="@dimen/_330pxh">
+                <ImageView android:id="@+id/imageSubtract"
+                    android:layout_gravity="start"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_subtract_white_a700"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_subtract_white_a700"/>
+                <View
+                    android:background="@drawable/layer_list_radius_10"
+                    android:id="@+id/viewRectangleFive"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_240pxh"
+                    android:layout_marginHorizontal="@dimen/_40pxh"
+                    android:layout_marginVertical="@dimen/_40pxv" android:layout_width="@dimen/_240pxh"/>
+            </FrameLayout>
+        </FrameLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:backgroundTint="@color/white_A700_26"
+            android:id="@+id/floatingBtnFloatingactionbutton"
+            android:layout_gravity="bottom|center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5pxv"
+            android:layout_marginEnd="@dimen/_147pxh"
+            android:layout_marginStart="@dimen/_147pxh"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_width="wrap_content"
+            app:fabCustomSize="@dimen/_65pxh"
+            app:srcCompat="@drawable/img_scanaltlight" app:tint="@color/indigo_300_00"/>
+    </FrameLayout>
+</layout>

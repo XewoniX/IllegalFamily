@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest package="com.jakubsapplication.app" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <application android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Illegal Family Brodnica - Night Ride" android:largeHeap="true"
+        android:name="com.jakubsapplication.app.appcomponents.di.MyApp"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
+        <activity android:exported="true"
+            android:name="com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jakubsapplication.app.modules.jointogroupview.ui.JoinToGroupViewActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.jakubsapplication.app.modules.mapview.ui.MapViewActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.jakubsapplication.app.modules.votingview.ui.VotingViewActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.jakubsapplication.app.modules.homeview.ui.HomeViewActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.jakubsapplication.app.modules.scanqrcodeview.ui.ScanQrCodeViewActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.jakubsapplication.app.modules.chatviewcontainer.ui.ChatViewContainerActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.jakubsapplication.app.modules.profilesettingview.ui.ProfileSettingViewActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>
