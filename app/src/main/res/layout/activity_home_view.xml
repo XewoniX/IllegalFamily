@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginStart="@dimen/_15pxh"
+            android:layout_marginTop="@dimen/_80pxh"
             android:layout_marginBottom="@dimen/_100pxh"
             android:gravity="start"
             android:isScrollContainer="true"
