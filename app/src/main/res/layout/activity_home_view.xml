@@ -7,303 +7,532 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent" style="@style/groupStyle">
 
-        <LinearLayout android:id="@+id/linearColumnhome"
-            android:layout_gravity="bottom|center"
+        <TextView
+            android:id="@+id/txtWitajUsernam"
+            style="@style/txtInterbold20"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_1pxh"
-            android:layout_marginTop="@dimen/_10pxv"
-            android:layout_width="match_parent" android:orientation="vertical">
+            android:layout_gravity="top"
+            android:layout_marginStart="@dimen/_15pxh"
+            android:layout_marginTop="@dimen/_15pxh"
+            android:layout_marginEnd="@dimen/_15pxh"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:keepScreenOn="true"
+            android:textAllCaps="true"
+            tools:ignore="TextSizeCheck" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/_15pxh"
+            android:layout_marginBottom="@dimen/_100pxh"
+            android:gravity="start"
+            android:isScrollContainer="true"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/linearColumnwitajusernam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|top"
-                android:gravity="start|top"
-                android:orientation="vertical"
-                tools:ignore="UselessParent">
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtWitajUsernam"
-                    style="@style/txtInterbold20"
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15pxh"
-                    android:layout_marginEnd="@dimen/_15pxh"
-                    android:textAllCaps="true"
-                    tools:ignore="TextSizeCheck"
-                    />
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar3"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar4"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar5"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar6"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar7"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar8"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar9"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar10"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar11"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar12"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar13"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar14"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar15"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar16"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar17"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar18"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar19"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar20"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar21"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar22"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar23"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar24"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar25"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar26"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar27"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar28"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar29"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar30"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar31"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar32"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar33"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar34"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar35"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar36"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar37"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar38"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar39"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar40"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar41"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar42"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar43"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar44"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar45"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar46"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar47"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar48"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar49"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar50"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar51"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar52"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar53"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar54"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar55"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar56"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/frameMenu"
+            android:layout_width="@dimen/_359pxh"
+            android:layout_height="@dimen/_95pxv"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:keepScreenOn="true">
+
+            <FrameLayout
+                android:id="@+id/frameBottombar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/_18pxh"
+                android:layout_marginEnd="@dimen/_18pxh"
+                android:gravity="center_horizontal">
 
                 <LinearLayout
-                    android:id="@+id/linearMessageboxes"
-                    style="@style/groupStylecornerRadius_1"
+                    android:id="@+id/linearRow"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15pxh"
-                    android:layout_marginTop="@dimen/_83pxv"
-                    android:layout_marginEnd="@dimen/_14pxh"
-                    android:gravity="start"
-                    android:isScrollContainer="true"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:id="@+id/frameStackdescription"
-                        style="@style/groupStylecornerRadius_1"
-                        android:layout_width="@dimen/_330pxh"
-                        android:layout_height="@dimen/_150pxv">
-
-                        <TextView
-                            android:id="@+id/txtDescription"
-                            style="@style/txtInterbold14"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="@dimen/_17pxh"
-                            android:layout_marginTop="@dimen/_19pxv"
-                            android:layout_marginEnd="@dimen/_18pxh"
-                            android:layout_marginBottom="@dimen/_19pxv"
-                            android:gravity="top|start"
-                            android:text="@{homeViewVM.homeViewModel.txtDescription}"
-                            android:textAllCaps="true"
-                            android:textColor="#A1887F"
-                            tools:ignore="TextSizeCheck"
-                            tools:text="@string/msg_nocna_jazda_sta" />
-
-                        <View
-                            android:id="@+id/viewRectangleSix"
-                            android:layout_width="@dimen/_330pxh"
-                            android:layout_height="@dimen/_150pxv"
-                            android:layout_gravity="start"
-                            android:background="@drawable/rectangle_bg_white_a700_26_radius_30" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/frameStackdescriptionOne"
-                        style="@style/groupStylecornerRadius_1"
-                        android:layout_width="@dimen/_330pxh"
-                        android:layout_height="@dimen/_150pxv"
-                        android:layout_marginTop="@dimen/_15pxv">
-
-                        <TextView
-                            android:id="@+id/txtDescriptionOne"
-                            style="@style/txtInterbold16"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginStart="@dimen/_17pxh"
-                            android:layout_marginTop="@dimen/_26pxv"
-                            android:layout_marginEnd="@dimen/_17pxh"
-                            android:layout_marginBottom="@dimen/_26pxv"
-                            android:gravity="top|start"
-                            android:text="@{homeViewVM.homeViewModel.txtDescriptionOne}"
-                            android:textAllCaps="true"
-                            android:textColor="#A1887F"
-                            tools:ignore="TextSizeCheck,TextContrastCheck"
-                            tools:text="@string/msg_uwaga_konkurs" />
-
-                        <View
-                            android:id="@+id/viewRectangleFive"
-                            android:layout_width="@dimen/_330pxh"
-                            android:layout_height="@dimen/_150pxv"
-                            android:layout_gravity="start"
-                            android:background="@drawable/rectangle_bg_white_a700_26_radius_30" />
-
-                        <ImageView
-                            android:id="@+id/imageBackground"
-                            imageRes="@{@drawable/img_background}"
-                            android:layout_width="match_parent"
-                            android:layout_height="148dp"
-                            android:layout_gravity="start"
-                            android:scaleType="fitXY"
-                            tools:ignore="ContentDescription,ImageContrastCheck"
-                            tools:src="@drawable/img_background" />
-                    </FrameLayout>
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_marginBottom="@dimen/_5pxv"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/linearColumnzapraszamdoza"
-                        style="@style/groupStylewhite_A700_1"
-                        android:layout_width="match_parent"
+                        android:id="@+id/linearRowhome"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_17pxv"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_weight="0.49"
+                        android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/txtZapraszamdoza"
-                            style="@style/txtInterbold16"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="@dimen/_17pxh"
-                            android:layout_marginTop="@dimen/_37pxv"
-                            android:layout_marginEnd="@dimen/_17pxh"
-                            android:layout_marginBottom="@dimen/_32pxv"
-                            android:gravity="start"
-                            android:text="@{homeViewVM.homeViewModel.txtZapraszamdoza}"
-                            android:textAllCaps="true"
-                            android:textColor="#A1887F"
-                            tools:ignore="TextSizeCheck"
-                            tools:text="@string/msg_zapraszam_do_za" />
-                    </LinearLayout>
-                </LinearLayout>
+                        <ImageView
+                            android:id="@+id/imageHome"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_8pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_home"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_home" />
 
-                <FrameLayout
-                    android:id="@+id/frameMenu"
-                    android:layout_width="@dimen/_359pxh"
-                    android:layout_height="@dimen/_95pxv"
-                    android:layout_marginTop="@dimen/_12pxv">
-
-                    <FrameLayout
-                        android:id="@+id/frameBottombar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginStart="@dimen/_18pxh"
-                        android:layout_marginEnd="@dimen/_18pxh"
-                        android:gravity="center_horizontal">
-
-                        <LinearLayout
-                            android:id="@+id/linearRow"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                        <ImageView
+                            android:id="@+id/imageMap"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_44pxh"
                             android:layout_marginTop="@dimen/_5pxv"
                             android:layout_marginBottom="@dimen/_5pxv"
-                            android:orientation="horizontal"
-                            android:baselineAligned="false">
-
-                            <LinearLayout
-                                android:id="@+id/linearRowhome"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_3pxv"
-                                android:layout_weight="0.49"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:id="@+id/imageHome"
-                                    android:layout_width="@dimen/_24pxh"
-                                    android:layout_height="@dimen/_26pxh"
-                                    android:layout_gravity="center"
-                                    android:layout_marginStart="@dimen/_8pxh"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/img_home"
-                                    tools:ignore="ContentDescription,ImageContrastCheck"
-                                    tools:src="@drawable/img_home" />
-
-                                <ImageView
-                                    android:id="@+id/imageMap"
-                                    android:layout_width="@dimen/_24pxh"
-                                    android:layout_height="@dimen/_26pxh"
-                                    android:layout_gravity="center"
-                                    android:layout_marginStart="@dimen/_44pxh"
-                                    android:layout_marginTop="@dimen/_5pxv"
-                                    android:layout_marginBottom="@dimen/_5pxv"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/img_map"
-                                    tools:ignore="ContentDescription,ImageContrastCheck"
-                                    tools:src="@drawable/img_map" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/linearRowlineone"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_3pxv"
-                                android:layout_weight="0.49"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:id="@+id/frameCheckringligh"
-                                    style="@style/groupStylecornerRadius_2"
-                                    android:layout_width="@dimen/_24pxh"
-                                    android:layout_height="@dimen/_26pxv"
-                                    android:layout_marginStart="@dimen/_70pxv"
-                                    android:layout_marginTop="@dimen/_8pxv"
-                                    android:layout_marginBottom="@dimen/_5pxv">
-
-                                    <ImageView
-                                        android:id="@+id/imageLineOne"
-                                        android:layout_width="@dimen/_13pxh"
-                                        android:layout_height="@dimen/_10pxh"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/_10pxv"
-                                        android:layout_marginBottom="@dimen/_10pxv"
-                                        android:scaleType="fitXY"
-                                        android:src="@drawable/img_line1"
-                                        tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
-                                        tools:src="@drawable/img_line1" />
-                                </FrameLayout>
-
-                                <ImageView
-                                    android:id="@+id/imageUser"
-                                    android:layout_width="@dimen/_24pxh"
-                                    android:layout_height="@dimen/_26pxh"
-                                    android:layout_gravity="center"
-                                    android:layout_marginStart="@dimen/_38pxh"
-                                    android:layout_marginTop="@dimen/_5pxv"
-                                    android:layout_marginEnd="@dimen/_5pxh"
-                                    android:layout_marginBottom="@dimen/_5pxv"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/img_user"
-                                    tools:ignore="ContentDescription,ImageContrastCheck"
-                                    tools:src="@drawable/img_user" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/frameStacksubtract"
-                        android:layout_width="@dimen/_359pxh"
-                        android:layout_height="@dimen/_80pxv"
-                        android:layout_gravity="bottom|start"
-                        android:layout_marginTop="@dimen/_10pxv">
-
-                        <ImageView
-                            android:id="@+id/imageSubtract"
-                            imageRes="@{@drawable/img_subtract}"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40pxh"
-                            android:layout_gravity="bottom|start"
                             android:scaleType="fitXY"
-                            tools:ignore="ContentDescription"
-                            tools:src="@drawable/img_subtract" />
-
-                        <ImageView
-                            android:id="@+id/imageLineFour"
-                            android:layout_width="@dimen/_31pxh"
-                            android:layout_height="@dimen/_3pxh"
-                            android:layout_gravity="bottom"
-                            android:layout_marginStart="@dimen/_23pxh"
-                            android:layout_marginTop="@dimen/_17pxv"
-                            android:layout_marginEnd="@dimen/_23pxh"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_line4"
+                            android:src="@drawable/img_map"
                             tools:ignore="ContentDescription,ImageContrastCheck"
-                            tools:src="@drawable/img_line4" />
-                    </FrameLayout>
+                            tools:src="@drawable/img_map" />
+                    </LinearLayout>
 
-                    <View
-                        android:id="@+id/viewEllipseSix"
-                        android:layout_width="@dimen/_67pxh"
-                        android:layout_height="@dimen/_65pxh"
-                        android:layout_gravity="bottom|center"
-                        android:layout_marginStart="@dimen/_144pxh"
-                        android:layout_marginEnd="@dimen/_144pxh"
-                        android:background="@drawable/rectangle_gradient_s_purple_a400_26_c_purple_a400_26_e_orange_400_26_radius_30" />
+                    <LinearLayout
+                        android:id="@+id/linearRowlineone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_weight="0.49"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/imageMenu"
-                        android:layout_width="@dimen/_27pxh"
-                        android:layout_height="@dimen/_27pxh"
-                        android:layout_gravity="center_horizontal|center_vertical"
-                        android:layout_marginStart="@dimen/_165pxh"
-                        android:layout_marginTop="@dimen/_10pxv"
-                        android:layout_marginEnd="@dimen/_165pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_menu"
-                        tools:ignore="ContentDescription"
-                        tools:src="@drawable/img_menu" />
-                </FrameLayout>
-            </LinearLayout>
-        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/frameCheckringligh"
+                            style="@style/groupStylecornerRadius_2"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxv"
+                            android:layout_marginStart="@dimen/_70pxv"
+                            android:layout_marginTop="@dimen/_8pxv"
+                            android:layout_marginBottom="@dimen/_5pxv">
+
+                            <ImageView
+                                android:id="@+id/imageLineOne"
+                                android:layout_width="@dimen/_13pxh"
+                                android:layout_height="@dimen/_10pxh"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_10pxv"
+                                android:layout_marginBottom="@dimen/_10pxv"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_line1"
+                                tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
+                                tools:src="@drawable/img_line1" />
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/imageUser"
+                            android:layout_width="@dimen/_24pxh"
+                            android:layout_height="@dimen/_26pxh"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_38pxh"
+                            android:layout_marginTop="@dimen/_5pxv"
+                            android:layout_marginEnd="@dimen/_5pxh"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_user"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_user" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameStacksubtract"
+                android:layout_width="@dimen/_359pxh"
+                android:layout_height="@dimen/_80pxv"
+                android:layout_gravity="bottom|start"
+                android:layout_marginTop="@dimen/_10pxv">
+
+                <ImageView
+                    android:id="@+id/imageSubtract"
+                    imageRes="@{@drawable/img_subtract}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40pxh"
+                    android:layout_gravity="bottom|start"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_subtract" />
+
+                <ImageView
+                    android:id="@+id/imageLineFour"
+                    android:layout_width="@dimen/_31pxh"
+                    android:layout_height="@dimen/_3pxh"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/_23pxh"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_marginEnd="@dimen/_23pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_line4"
+                    tools:ignore="ContentDescription,ImageContrastCheck"
+                    tools:src="@drawable/img_line4" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/viewEllipseSix"
+                android:layout_width="@dimen/_67pxh"
+                android:layout_height="@dimen/_65pxh"
+                android:layout_gravity="bottom|center"
+                android:layout_marginStart="@dimen/_144pxh"
+                android:layout_marginEnd="@dimen/_144pxh"
+                android:background="@drawable/rectangle_gradient_s_purple_a400_26_c_purple_a400_26_e_orange_400_26_radius_30" />
+
+            <ImageView
+                android:id="@+id/imageMenu"
+                android:layout_width="@dimen/_27pxh"
+                android:layout_height="@dimen/_27pxh"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="@dimen/_165pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_marginEnd="@dimen/_165pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_menu"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_menu" />
+        </FrameLayout>
+
     </FrameLayout>
 </layout>

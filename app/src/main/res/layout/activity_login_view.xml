@@ -14,14 +14,20 @@
                 android:layout_gravity="top|start"
                 android:layout_height="@dimen/_318pxv"
                 android:layout_marginBottom="@dimen/_10pxv" android:layout_width="match_parent">
-                <ImageView android:id="@+id/imageLogoOne"
-                    android:layout_gravity="top|start"
-                    android:layout_height="@dimen/_284pxv"
-                    android:layout_marginBottom="@dimen/_10pxv"
-                    android:layout_width="match_parent"
-                    android:scaleType="fitXY"
+
+                <ImageView
+                    android:id="@+id/imageLogoOne"
                     imageRes="@{@drawable/img_logo1}"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_logo1"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_175pxv"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="@dimen/_10pxv"
+                    android:layout_marginTop="@dimen/_60pxv"
+                    android:layout_marginEnd="@dimen/_10pxv"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_logo1" />
 
                 <ImageView
                     android:id="@+id/imageRectangleTwo"
