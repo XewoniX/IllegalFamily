@@ -73,39 +73,77 @@ class JoinToGroupViewActivity :
     override fun handleResult(result: Result) {
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-        val db = FirebaseFirestore.getInstance()
+        val providers = user?.providerData
 
-        db.collection("QR")
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    val data = document.data
-                    val pole1 = data["QR"]
-                    println("Pole 1: $pole1")
-                    if (pole1 == result.text) {
-                        Log.d("QRScanner", "Kod QR zgadza się!")
-                        val email = user?.email
-                        val collectionReference = db.collection("QRAuth")
-                        val data = hashMapOf("adres_email" to email)
-                        collectionReference.add(data)
-                            .addOnSuccessListener { documentReference ->
-                                println("Adres e-mail został zapisany z sukcesem.")
-                                val intent = Intent(this, com.jakubsapplication.app.modules.homeview.ui.HomeViewActivity::class.java)
-                                startActivity(intent)
+        if (providers != null) {
+            for (userInfo in providers) {
+                val db = FirebaseFirestore.getInstance()
+                val collectionReference = db.collection("Ban") // Określ kolekcję
+                // Utwórz zapytanie, aby znaleźć dokumenty z danym adresem e-mail
+                val email = user.email
+                val emailToSearch = email
+                println(emailToSearch)
+                val query = collectionReference.whereEqualTo("adres_email", emailToSearch)
+                if (userInfo.providerId == "google.com") {
+                    query.get()
+                        .addOnSuccessListener { querySnapshot ->
+                            if (!querySnapshot.isEmpty) {
+                                // Adres e-mail istnieje w bazie danych
+                                Toast.makeText(
+                                    getApplicationContext(),
+                                    "Twoje konto zostało zablokowane, skontaktuj się z administratorem", Toast.LENGTH_SHORT
+                                ).show();
+                                println("Adres e-mail istnieje w bazie danych i jest zablokowany przez administratora.")
+                            } else {
+                                db.collection("QR")
+                                    .get()
+                                    .addOnSuccessListener { documents ->
+                                        for (document in documents) {
+                                            val data = document.data
+                                            val pole1 = data["QR"]
+                                            println("Pole 1: $pole1")
+                                            if (pole1 == result.text) {
+                                                Log.d("QRScanner", "Kod QR zgadza się!")
+                                                val email = user?.email
+                                                val collectionReference = db.collection("QRAuth")
+                                                val data = hashMapOf("adres_email" to email)
+                                                collectionReference.add(data)
+                                                    .addOnSuccessListener { documentReference ->
+                                                        println("Adres e-mail został zapisany z sukcesem.")
+                                                        val intent = Intent(
+                                                            this,
+                                                            com.jakubsapplication.app.modules.homeview.ui.HomeViewActivity::class.java
+                                                        )
+                                                        startActivity(intent)
+                                                    }
+                                                    .addOnFailureListener { exception ->
+                                                        println("Błąd podczas zapisywania adresu e-mail: $exception")
+                                                    }
+                                            } else {
+                                                Log.d("QRScanner", "Kod QR nie zgadza sie! :(")
+                                                Toast.makeText(
+                                                    getApplicationContext(),
+                                                    "Kod QR nie jest zgodny, zapytaj organizatora o nowy", Toast.LENGTH_SHORT
+                                                ).show();
+                                            }
+                                        }
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        // Obsłuż błąd
+                                        Log.d("QRScanner", "Błąd :(")
+                                    }
+                                println("Adres e-mail nie jest zablokowany.")
                             }
-                            .addOnFailureListener { exception ->
-                                println("Błąd podczas zapisywania adresu e-mail: $exception")
-                            }
-                    } else {
-                        Log.d("QRScanner", "Kod QR nie zgadza sie! :(")
-                        Toast.makeText(getApplicationContext(), "Kod QR nie jest zgodny, zapytaj organizatora o nowy", Toast.LENGTH_SHORT).show();
-                    }
+                        }
+                        .addOnFailureListener { exception ->
+                            println("Błąd podczas sprawdzania adresu e-mail: $exception")
+                        }
+                    println("Użytkownik jest połączony z kontem Google.")
                 }
             }
-            .addOnFailureListener { exception ->
-                // Obsłuż błąd
-                Log.d("QRScanner", "Błąd :(")
-            }
+        }
+
+
         // Ten kod zostanie wywołany po zeskanowaniu kodu QR.
         Log.d("QRScanner", "Wartość zeskanowanego kodu: ${result.text}")
 
