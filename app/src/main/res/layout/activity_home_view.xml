@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="homeViewVM" type="com.jakubsapplication.app.modules.homeview.data.viewmodel.HomeViewVM"/>
     </data>
     <FrameLayout android:id="@+id/frameStackbackground"
         android:layout_height="match_parent"
         android:layout_width="match_parent" style="@style/groupStyle">
+
+        <FrameLayout
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/_20pxv"
+            android:layout_marginBottom="@dimen/_55pxv"
+            android:background="@drawable/rectangle_bg_white_a700_26_radius_30"
+            android:onClick="showX()">
+
+            <TextView
+                android:id="@+id/textDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5pxv"
+                android:text="Usuń ogłoszenie"
+                android:textColor="#FFFFFF" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/_20pxv"
+            android:layout_marginBottom="@dimen/_55pxv"
+            android:background="@drawable/rectangle_bg_white_a700_26_radius_30">
+
+            <TextView
+                android:id="@+id/textAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5pxv"
+                android:text="Dodaj ogłoszenie"
+                android:textColor="#FFFFFF" />
+        </FrameLayout>
 
         <TextView
             android:id="@+id/txtWitajUsernam"
@@ -37,7 +76,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:clipToPadding="false"
-                android:scrollIndicators="top" />
+                android:scrollIndicators="top" >
+
+            </androidx.recyclerview.widget.RecyclerView>
         </ScrollView>
 
         <FrameLayout

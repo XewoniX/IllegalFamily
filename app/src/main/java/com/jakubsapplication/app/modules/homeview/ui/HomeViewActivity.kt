@@ -5,6 +5,8 @@ import ItemModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
 import com.google.firebase.Firebase
@@ -20,6 +22,7 @@ import com.jakubsapplication.app.modules.votingview.ui.VotingViewActivity
 import kotlin.String
 import kotlin.Unit
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -68,6 +71,20 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
             .addOnFailureListener { exception ->
                 Toast.makeText(getApplicationContext(), "Blad", Toast.LENGTH_SHORT).show();
             }
+    }
+
+
+
+    fun showX() {
+        val X = findViewById<Button>(R.id.button)
+        if(X.isVisible)
+        {
+            X.visibility = View.INVISIBLE
+        }
+        else
+        {
+            X.visibility = View.VISIBLE
+        }
     }
     override fun setUpClicks(): Unit {
         binding.imageMenu.setOnClickListener {
