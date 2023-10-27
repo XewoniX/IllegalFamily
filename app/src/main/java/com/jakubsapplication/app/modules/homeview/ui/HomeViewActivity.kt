@@ -38,12 +38,9 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
 
         val user = Firebase.auth.currentUser
         val username = findViewById<TextView>(R.id.txtWitajUsernam)
-
-        // Sprawdź, czy użytkownik jest zalogowany
         if (user != null) {
             val displayName = user?.displayName
             if (displayName != null) {
-                // Rozdziel imię i nazwisko (jeśli dostępne)
                 val nameParts = displayName.split(" ")
                 val firstName = nameParts[0]
                 username.text = "$firstName, witaj w Illegal Family Brodnica!\n" +
@@ -53,42 +50,25 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
                         "Zapoznaj się z ogłoszeniami"
             }
         }
-
         recyclerView = findViewById(R.id.recyclerView)
-
-        // Inicjalizacja Firebase Firestore
         firestore = FirebaseFirestore.getInstance()
-
         val dataList = ArrayList<ItemModel>()
-
         itemAdapter = ItemAdapter(dataList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = itemAdapter
-
-        // Pobieranie danych z Firestore
-
         firestore.collection("Ogloszenia")
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemModel = document.toObject(ItemModel::class.java)
                     dataList.add(itemModel)
-                    println("DODANE")
                 }
                 itemAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
-                // Obsłuż błąd
                 Toast.makeText(getApplicationContext(), "Blad", Toast.LENGTH_SHORT).show();
             }
-
-
-
-
-
     }
-
-
     override fun setUpClicks(): Unit {
         binding.imageMenu.setOnClickListener {
             val destIntent = ChatViewContainerActivity.getIntent(this, null)

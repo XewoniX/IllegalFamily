@@ -7,18 +7,19 @@ import com.jakubsapplication.app.R
 
 
 data class ItemModel(
+    val tytul: String = "",
     val opis: String = ""
 )
 class ItemAdapter(private val dataList: List<ItemModel>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_ogloszenie, parent, false)
-        println("dupa")
         return ItemViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataList[position]
+        holder.tytulTextView.text = item.tytul
         holder.opisTextView.text = item.opis
     }
 
@@ -27,6 +28,7 @@ class ItemAdapter(private val dataList: List<ItemModel>) : RecyclerView.Adapter<
     }
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val opisTextView: TextView = itemView.findViewById(R.id.txtDescription)
+        val opisTextView: TextView = itemView.findViewById(R.id.txtDescription2)
+        val tytulTextView: TextView = itemView.findViewById(R.id.txtDescription)
     }
 }
