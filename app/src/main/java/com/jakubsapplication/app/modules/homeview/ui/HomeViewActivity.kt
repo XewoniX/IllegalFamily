@@ -1,12 +1,15 @@
 package com.jakubsapplication.app.modules.homeview.ui
 
+
 import ItemAdapter
 import ItemModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.viewModels
 import com.google.firebase.Firebase
@@ -38,6 +41,10 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         binding.homeViewVM = viewModel
 
+        val button = findViewById<FrameLayout>(R.id.buttonDelete)
+        button.setOnClickListener {
+            showX()
+        }
 
         val user = Firebase.auth.currentUser
         val username = findViewById<TextView>(R.id.txtWitajUsernam)
@@ -64,7 +71,9 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemModel = document.toObject(ItemModel::class.java)
+                    dataList[0].widok = 1
                     dataList.add(itemModel)
+
                 }
                 itemAdapter.notifyDataSetChanged()
             }
@@ -72,19 +81,8 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
                 Toast.makeText(getApplicationContext(), "Blad", Toast.LENGTH_SHORT).show();
             }
     }
-
-
-
     fun showX() {
-        val X = findViewById<Button>(R.id.button)
-        if(X.isVisible)
-        {
-            X.visibility = View.INVISIBLE
-        }
-        else
-        {
-            X.visibility = View.VISIBLE
-        }
+
     }
     override fun setUpClicks(): Unit {
         binding.imageMenu.setOnClickListener {
