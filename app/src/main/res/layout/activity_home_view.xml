@@ -11,7 +11,7 @@
             android:id="@+id/txtWitajUsernam"
             style="@style/txtInterbold20"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="84dp"
             android:layout_gravity="top"
             android:layout_marginStart="@dimen/_15pxh"
             android:layout_marginTop="@dimen/_15pxh"
@@ -23,356 +23,21 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="@dimen/_15pxh"
-            android:layout_marginTop="@dimen/_80pxh"
-            android:layout_marginBottom="@dimen/_100pxh"
+            android:layout_height="688dp"
+            android:layout_gravity="start|top"
+            android:layout_marginTop="@dimen/_100pxh"
+            android:layout_marginBottom="@dimen/_15pxh"
             android:gravity="start"
             android:isScrollContainer="true"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ProgressBar
-                    android:id="@+id/progressBar2"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar3"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar4"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar5"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar6"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar7"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar8"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar9"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar10"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar11"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar12"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar13"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar14"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar15"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar16"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar17"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar18"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar19"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar20"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar21"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar22"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar23"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar24"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar25"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar26"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar27"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar28"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar29"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar30"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar31"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar32"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar33"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar34"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar35"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar36"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar37"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar38"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar39"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar40"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar41"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar42"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar43"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar44"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar45"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar46"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar47"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar48"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar49"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar50"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar51"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar52"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar53"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar54"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar55"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar56"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:layout_gravity="top"
+                android:clipToPadding="false"
+                android:scrollIndicators="top" />
         </ScrollView>
 
         <FrameLayout
@@ -399,7 +64,8 @@
                     android:layout_marginTop="@dimen/_5pxv"
                     android:layout_marginBottom="@dimen/_5pxv"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/linearRowhome"
