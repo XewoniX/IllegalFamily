@@ -18,7 +18,8 @@
             android:layout_marginBottom="@dimen/_55pxv"
             android:background="@drawable/rectangle_bg_white_a700_26_radius_30"
             android:clickable="true"
-            android:focusable="auto">
+            android:focusable="auto"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/textDelete"
@@ -36,7 +37,8 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/_20pxv"
             android:layout_marginBottom="@dimen/_55pxv"
-            android:background="@drawable/rectangle_bg_white_a700_26_radius_30">
+            android:background="@drawable/rectangle_bg_white_a700_26_radius_30"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/textAdd"

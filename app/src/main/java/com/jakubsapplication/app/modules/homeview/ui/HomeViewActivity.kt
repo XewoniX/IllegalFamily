@@ -6,14 +6,10 @@ import ItemModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
+import android.util.Log
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.viewModels
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
 import com.jakubsapplication.app.R
 import com.jakubsapplication.app.appcomponents.base.BaseActivity
 import com.jakubsapplication.app.databinding.ActivityHomeViewBinding
@@ -25,9 +21,13 @@ import com.jakubsapplication.app.modules.votingview.ui.VotingViewActivity
 import kotlin.String
 import kotlin.Unit
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -45,9 +45,38 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
         button.setOnClickListener {
             showX()
         }
-
-        val user = Firebase.auth.currentUser
         val username = findViewById<TextView>(R.id.txtWitajUsernam)
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val myRef: DatabaseReference = database.getReference("QRAuth")
+
+        myRef.child("123123").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Pobrane dane z Firebase
+                    val value = dataSnapshot.value
+                    // Możesz teraz wykorzystać tę wartość, np. wyświetlić ją w TextView
+                    username.text = "$value.toString(), witaj w Illegal Family Brodnica!\n" +
+                            "Zapoznaj się z ogłoszeniami"
+                } else {
+                    // Dane nie istnieją
+                    username.text = "Witaj w Illegal Family Brodnica!\n" +
+                            "Zapoznaj się z ogłoszeniami"
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Obsłuż błąd
+                Log.w("Firebase", "Failed to read value.", error.toException())
+                username.text = "Witaj w Illegal Family Brodnica!\n" +
+                        "Zapoznaj się z ogłoszeniami"
+            }
+        })
+
+
+
+
+   /*    val user = Firebase.auth.currentUser
+
         if (user != null) {
             val displayName = user?.displayName
             if (displayName != null) {
@@ -59,7 +88,7 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
                 username.text = "Witaj w Illegal Family Brodnica!\n" +
                         "Zapoznaj się z ogłoszeniami"
             }
-        }
+        }*/
         recyclerView = findViewById(R.id.recyclerView)
         firestore = FirebaseFirestore.getInstance()
         val dataList = ArrayList<ItemModel>()
@@ -71,7 +100,6 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemModel = document.toObject(ItemModel::class.java)
-                    dataList[0].widok = 1
                     dataList.add(itemModel)
 
                 }

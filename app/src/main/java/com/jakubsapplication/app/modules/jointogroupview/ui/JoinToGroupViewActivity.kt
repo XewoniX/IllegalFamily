@@ -21,6 +21,8 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
@@ -74,6 +76,11 @@ class JoinToGroupViewActivity :
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         val providers = user?.providerData
+        data class Account(
+            val adres_email: String,
+            val name: String
+        )
+
 
         if (providers != null) {
             for (userInfo in providers) {
@@ -104,21 +111,29 @@ class JoinToGroupViewActivity :
                                             println("Pole 1: $pole1")
                                             if (pole1 == result.text) {
                                                 Log.d("QRScanner", "Kod QR zgadza się!")
+                                                val user = Firebase.auth.currentUser
+                                                val displayName = user?.displayName
+                                                    val nameParts = displayName!!.split(" ")
+                                                    val firstName = nameParts[0]
                                                 val email = user?.email
                                                 val collectionReference = db.collection("QRAuth")
                                                 val data = hashMapOf("adres_email" to email)
-                                                collectionReference.add(data)
-                                                    .addOnSuccessListener { documentReference ->
-                                                        println("Adres e-mail został zapisany z sukcesem.")
-                                                        val intent = Intent(
-                                                            this,
-                                                            com.jakubsapplication.app.modules.homeview.ui.HomeViewActivity::class.java
-                                                        )
-                                                        startActivity(intent)
-                                                    }
-                                                    .addOnFailureListener { exception ->
-                                                        println("Błąd podczas zapisywania adresu e-mail: $exception")
-                                                    }
+                                                val account = email?.let { Account(it,firstName) }
+                                                if (account != null) {
+                                                    collectionReference.add(account)
+                                                        .addOnSuccessListener { documentReference ->
+                                                            println("Adres e-mail został zapisany z sukcesem.")
+
+                                                            val intent = Intent(
+                                                                this,
+                                                                com.jakubsapplication.app.modules.homeview.ui.HomeViewActivity::class.java
+                                                            )
+                                                            startActivity(intent)
+                                                        }
+                                                        .addOnFailureListener { exception ->
+                                                            println("Błąd podczas zapisywania adresu e-mail: $exception")
+                                                        }
+                                                }
                                             } else {
                                                 Log.d("QRScanner", "Kod QR nie zgadza sie! :(")
                                                 Toast.makeText(
