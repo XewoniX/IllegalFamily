@@ -6,7 +6,6 @@ import ItemModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -23,11 +22,8 @@ import kotlin.Unit
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -40,39 +36,52 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         binding.homeViewVM = viewModel
-
+        val auth = FirebaseAuth.getInstance()
         val button = findViewById<FrameLayout>(R.id.buttonDelete)
         button.setOnClickListener {
             showX()
         }
         val username = findViewById<TextView>(R.id.txtWitajUsernam)
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef: DatabaseReference = database.getReference("QRAuth")
-
-        myRef.child("123123").addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // Pobrane dane z Firebase
-                    val value = dataSnapshot.value
-                    // Możesz teraz wykorzystać tę wartość, np. wyświetlić ją w TextView
-                    username.text = "$value.toString(), witaj w Illegal Family Brodnica!\n" +
-                            "Zapoznaj się z ogłoszeniami"
-                } else {
-                    // Dane nie istnieją
-                    username.text = "Witaj w Illegal Family Brodnica!\n" +
-                            "Zapoznaj się z ogłoszeniami"
+        val db = FirebaseFirestore.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val email = user?.email
+        val kolekcjaRef = db.collection("QRAuth")
+        val zapytanie = kolekcjaRef.whereEqualTo("adres_email", email)
+        
+        zapytanie.get()
+            .addOnSuccessListener { querySnapshot ->
+                for (document in querySnapshot.documents) {
+                     val idDokumentu = document.id
+                    val docRef = db.collection("QRAuth").document(idDokumentu)
+                    docRef.get()
+                        .addOnSuccessListener { documentSnapshot ->
+                            if (documentSnapshot.exists()) {
+                                val data = documentSnapshot.data
+                                if (data != null) {
+                                    val pole = data["name"]
+                                    if (pole != null) {
+                                        println(pole)
+                                        username.text = "$pole, witaj w Illegal Family Brodnica!\n" +
+                                                "Zapoznaj się z ogłoszeniami"
+                                    }
+                                }
+                            } else {
+                                println("Dokument nie istnieje")
+                                username.text = "Witaj w Illegal Family Brodnica!\n" +
+                                        "Zapoznaj się z ogłoszeniami"
+                            }
+                        }
+                        .addOnFailureListener { e ->
+                            println("Błąd pobierania dokumentu: $e")
+                            username.text = "Witaj w Illegal Family Brodnica!\n" +
+                                    "Zapoznaj się z ogłoszeniami"
+                        }
+                    println("ID dokumentu: $idDokumentu")
                 }
             }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Obsłuż błąd
-                Log.w("Firebase", "Failed to read value.", error.toException())
-                username.text = "Witaj w Illegal Family Brodnica!\n" +
-                        "Zapoznaj się z ogłoszeniami"
+            .addOnFailureListener { e ->
+                println("Błąd podczas wykonywania zapytania: $e")
             }
-        })
-
-
 
 
    /*    val user = Firebase.auth.currentUser
