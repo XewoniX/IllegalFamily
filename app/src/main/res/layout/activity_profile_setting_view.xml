@@ -58,19 +58,44 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             android:scaleType="fitCenter"></ImageView>
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/input"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Jak chcesz sie nazywac" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
                         <TextView
                             android:id="@+id/txtUsername"
                             style="@style/txtInterbold26"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_25pxh"
+                            android:layout_marginStart="@dimen/_5pxh"
                             android:layout_marginTop="@dimen/_47pxv"
                             android:layout_marginBottom="@dimen/_45pxv"
                             android:layout_weight="0.55"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:textAllCaps="true"
-                            />
+                            android:textAllCaps="true" />
+
+                        <Button
+                            android:id="@+id/button_change_username"
+                            style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                            android:layout_width="27dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="top|end"
+                            android:layout_marginRight="@dimen/_7pxv"
+                            android:stateListAnimator="@null"
+                            android:visibility="visible"
+                            app:icon="@drawable/pen_icon"
+                            app:iconGravity="textEnd"
+                            app:iconTint="#FDFDFD"
+                            tools:ignore="SpeakableTextPresentCheck" />
                     </LinearLayout>
                 </androidx.appcompat.widget.Toolbar>
 
@@ -78,7 +103,7 @@
                     android:id="@+id/linearColumndodatkowefunkc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_81pxv"
+                    android:layout_marginTop="@dimen/_30pxv"
                     android:gravity="start"
                     android:orientation="vertical">
 
