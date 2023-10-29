@@ -133,6 +133,7 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
         binding.imageUser.setOnClickListener {
             val destIntent = ProfileSettingViewActivity.getIntent(this, null)
             startActivity(destIntent)
+            finish()
         }
         binding.frameCheckringligh.setOnClickListener {
             val destIntent = VotingViewActivity.getIntent(this, null)

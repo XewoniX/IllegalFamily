@@ -62,12 +62,23 @@
                             android:id="@+id/input"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_marginTop="@dimen/_47pxv"
+                            android:layout_marginBottom="@dimen/_45pxv"
                             android:visibility="gone">
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Jak chcesz sie nazywac" />
+
+                            <Button
+                                android:id="@+id/button_accept_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Potwierdź" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <TextView
@@ -80,8 +91,9 @@
                             android:layout_marginBottom="@dimen/_45pxv"
                             android:layout_weight="0.55"
                             android:ellipsize="end"
-                            android:singleLine="true"
-                            android:textAllCaps="true" />
+                            android:singleLine="false"
+                            android:textAllCaps="true"
+                            android:visibility="visible" />
 
                         <Button
                             android:id="@+id/button_change_username"

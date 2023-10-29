@@ -3,16 +3,20 @@ package com.jakubsapplication.app.modules.profilesettingview.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jakubsapplication.app.R
@@ -21,30 +25,73 @@ import com.jakubsapplication.app.databinding.ActivityProfileSettingViewBinding
 import com.jakubsapplication.app.modules.chatviewcontainer.ui.ChatViewContainerActivity
 import com.jakubsapplication.app.modules.homeview.ui.HomeViewActivity
 import com.jakubsapplication.app.modules.mapview.ui.MapViewActivity
-import com.jakubsapplication.app.modules.profilesettingview.`data`.viewmodel.ProfileSettingViewVM
+import com.jakubsapplication.app.modules.profilesettingview.data.viewmodel.ProfileSettingViewVM
 import com.jakubsapplication.app.modules.votingview.ui.VotingViewActivity
-import kotlin.String
-import kotlin.Unit
 
 class ProfileSettingViewActivity :
     BaseActivity<ActivityProfileSettingViewBinding>(R.layout.activity_profile_setting_view) {
     private val viewModel: ProfileSettingViewVM by viewModels<ProfileSettingViewVM>()
 
+    var pole = ""
+
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         binding.profileSettingViewVM = viewModel
-
-        val user = Firebase.auth.currentUser
         val username = findViewById<TextView>(R.id.txtUsername)
-        val useravatar = findViewById<ImageView>(R.id.frameStackuser)
         val button = findViewById<Button>(R.id.button_change_username)
         val username_edit = findViewById<TextInputLayout>(R.id.input)
-
+        val button_accept = findViewById<Button>(R.id.button_accept_name)
         val db = FirebaseFirestore.getInstance()
-        val email = user?.email
         val kolekcjaRef = db.collection("QRAuth")
-        val zapytanie = kolekcjaRef.whereEqualTo("adres_email", email)
+        update()
+        button_accept.setOnClickListener {
+            val zapytanie = kolekcjaRef.whereEqualTo("name", pole)
+            zapytanie.get()
+                .addOnSuccessListener { querySnapshot ->
+                    for (document in querySnapshot.documents) {
+                        val idDokumentu = document.id
+                        // Odebrane ID dokumentu znajduje się w zmiennej 'idDokumentu'
+                        val docRef = db.collection("QRAuth").document(idDokumentu)
+                        //val editText = findViewById<TextInputEditText>(R.id.editText)
+                        val editText: TextInputEditText = findViewById(R.id.editText)
+                        val maxLength = 20 // Maksymalna liczba znaków
+                        editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+                        val inputLayout = editText.parent.parent as TextInputLayout
+                        editText.addTextChangedListener(object : TextWatcher {
+                            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
+                            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                                if (s?.length ?: 0 > maxLength) {
+                                    inputLayout.error = "Przekroczono limit znaków"
+                                } else {
+                                    inputLayout.error = null
+                                }
+                            }
+                            override fun afterTextChanged(s: Editable?) {}
+                        })
+
+
+                        val nowaWartosc = editText.text.toString()
+
+                        docRef.update("name", nowaWartosc)
+                            .addOnSuccessListener {
+                                // Sukces
+                                println("DZIALA")
+                            }
+                            .addOnFailureListener { e ->
+                                // Obsługa błędu
+                                println("NIE DZIALA")
+                            }
+                    }
+                }
+                .addOnFailureListener { e ->
+                    println("Błąd podczas wykonywania zapytania: $e")
+                }
+            update()
+            username.visibility = View.VISIBLE
+            username_edit.visibility = View.GONE
+            button.visibility = View.VISIBLE
+        }
 
         button.setOnClickListener {
             username.visibility = View.GONE
@@ -52,6 +99,17 @@ class ProfileSettingViewActivity :
             button.visibility = View.GONE
         }
 
+    }
+
+
+    fun update(){
+        val db = FirebaseFirestore.getInstance()
+        val kolekcjaRef = db.collection("QRAuth")
+        val username = findViewById<TextView>(R.id.txtUsername)
+        val useravatar = findViewById<ImageView>(R.id.frameStackuser)
+        val user = Firebase.auth.currentUser
+        val email = user?.email
+        val zapytanie = kolekcjaRef.whereEqualTo("adres_email", email)
         zapytanie.get()
             .addOnSuccessListener { querySnapshot ->
                 for (document in querySnapshot.documents) {
@@ -60,9 +118,10 @@ class ProfileSettingViewActivity :
                     docRef.get()
                         .addOnSuccessListener { documentSnapshot ->
                             if (documentSnapshot.exists()) {
+
                                 val data = documentSnapshot.data
                                 if (data != null) {
-                                    val pole = data["name"]
+                                     pole = data["name"].toString()
                                     if (pole != null) {
                                         println(pole)
                                         username.text = "$pole"
@@ -98,8 +157,6 @@ class ProfileSettingViewActivity :
                 println("Awatar użytkownika nie jest dostępny")
             }
         }
-
-
     }
 
     override fun setUpClicks(): Unit {
