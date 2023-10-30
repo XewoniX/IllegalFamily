@@ -26,6 +26,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
+import java.util.Calendar
 
 @Suppress("DEPRECATION")
 class JoinToGroupViewActivity :
@@ -79,7 +80,8 @@ class JoinToGroupViewActivity :
         data class Account(
             val adres_email: String,
             val name: String,
-            val car: String
+            val car: String,
+            val data: String
         )
 
 
@@ -117,9 +119,10 @@ class JoinToGroupViewActivity :
                                                     val nameParts = displayName!!.split(" ")
                                                     val firstName = nameParts[0]
                                                 val email = user?.email
+                                                val (year, month, day) = getCurrentDate()
                                                 val collectionReference = db.collection("QRAuth")
                                                 val data = hashMapOf("adres_email" to email)
-                                                val account = email?.let { Account(it,firstName,"Uzupelnij swoj profil") }
+                                                val account = email?.let { Account(it,firstName,"Uzupelnij swoj profil","$day.$month.$year") }
                                                 if (account != null) {
                                                     collectionReference.add(account)
                                                         .addOnSuccessListener { documentReference ->
@@ -175,6 +178,15 @@ class JoinToGroupViewActivity :
     }
 
     override fun setUpClicks(): Unit {
+    }
+
+    fun getCurrentDate(): Triple<Int, Int, Int> {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1 // Miesiące w Calendar są liczone od 0 (styczeń) do 11 (grudzień)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        return Triple(year, month, day)
     }
 
     companion object {

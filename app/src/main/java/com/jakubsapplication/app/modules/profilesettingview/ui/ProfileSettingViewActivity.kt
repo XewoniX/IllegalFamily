@@ -35,6 +35,7 @@ class ProfileSettingViewActivity :
 
     var pole = ""
     var pole1 = ""
+    var pole2 = ""
 
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
@@ -64,7 +65,12 @@ class ProfileSettingViewActivity :
                         editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
                         val inputLayout = editText.parent.parent as TextInputLayout
                         editText.addTextChangedListener(object : TextWatcher {
-                            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                            override fun beforeTextChanged(
+                                s: CharSequence?,
+                                start: Int,
+                                count: Int,
+                                after: Int
+                            ) {
                                 if (s?.length ?: 0 > maxLength) {
                                     inputLayout.error = "Przekroczono limit znaków"
                                 } else {
@@ -72,13 +78,19 @@ class ProfileSettingViewActivity :
                                 }
                             }
 
-                            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                            override fun onTextChanged(
+                                s: CharSequence?,
+                                start: Int,
+                                before: Int,
+                                count: Int
+                            ) {
                                 if (s?.length ?: 0 > maxLength) {
                                     inputLayout.error = "Przekroczono limit znaków"
                                 } else {
                                     inputLayout.error = null
                                 }
                             }
+
                             override fun afterTextChanged(s: Editable?) {}
                         })
 
@@ -131,7 +143,12 @@ class ProfileSettingViewActivity :
                         editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
                         val inputLayout = editText.parent.parent as TextInputLayout
                         editText.addTextChangedListener(object : TextWatcher {
-                            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                            override fun beforeTextChanged(
+                                s: CharSequence?,
+                                start: Int,
+                                count: Int,
+                                after: Int
+                            ) {
                                 if (s?.length ?: 0 > maxLength) {
                                     inputLayout.error = "Przekroczono limit znaków"
                                 } else {
@@ -139,13 +156,19 @@ class ProfileSettingViewActivity :
                                 }
                             }
 
-                            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                            override fun onTextChanged(
+                                s: CharSequence?,
+                                start: Int,
+                                before: Int,
+                                count: Int
+                            ) {
                                 if (s?.length ?: 0 > maxLength) {
                                     inputLayout.error = "Przekroczono limit znaków"
                                 } else {
                                     inputLayout.error = null
                                 }
                             }
+
                             override fun afterTextChanged(s: Editable?) {}
                         })
 
@@ -175,11 +198,12 @@ class ProfileSettingViewActivity :
     }
 
 
-    fun update(){
+    fun update() {
         val car_info = findViewById<TextView>(R.id.txtCar)
         val db = FirebaseFirestore.getInstance()
         val kolekcjaRef = db.collection("QRAuth")
         val username = findViewById<TextView>(R.id.txtUsername)
+        val datatxt = findViewById<TextView>(R.id.datatxt)
         val useravatar = findViewById<ImageView>(R.id.frameStackuser)
         val user = Firebase.auth.currentUser
         val email = user?.email
@@ -195,25 +219,30 @@ class ProfileSettingViewActivity :
 
                                 val data = documentSnapshot.data
                                 if (data != null) {
-                                     pole = data["name"].toString()
+                                    pole = data["name"].toString()
                                     pole1 = data["car"].toString()
-                                    if (pole != null && pole1!= null) {
+                                    pole2 = data["data"].toString()
+                                    if (pole != null && pole1 != null && pole2 != null) {
                                         println(pole)
                                         username.text = "$pole"
                                         println(pole1)
                                         car_info.text = "$pole1"
+                                        println(pole2)
+                                        datatxt.text = "Data dolaczenia: $pole2"
                                     }
                                 }
                             } else {
                                 println("Dokument nie istnieje")
                                 username.text = "Nie udalo sie zaladowac nicku"
                                 car_info.text = "Nie udalo sie zaladowac informacji o aucie"
+                                datatxt.text = "Nie udalo sie zaladowac informacji o dacie dolaczenia"
                             }
                         }
                         .addOnFailureListener { e ->
                             println("Błąd pobierania dokumentu: $e")
                             username.text = "Nie udalo sie zaladowac nicku"
                             car_info.text = "Nie udalo sie zaladowac informacji o aucie"
+                            datatxt.text = "Nie udalo sie zaladowac informacji o dacie dolaczenia"
                         }
                     println("ID dokumentu: $idDokumentu")
                 }

@@ -115,6 +115,46 @@
                 </androidx.appcompat.widget.Toolbar>
 
                 <LinearLayout
+                    android:id="@+id/datadol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30pxv"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <FrameLayout
+                        android:id="@+id/datadollay"
+                        style="@style/groupStylecornerRadius_3"
+                        android:layout_width="@dimen/_330pxh"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginEnd="@dimen/_14pxh"
+                        android:background="@drawable/rectangle_bg_white_a700_26_radius_25">
+
+                        <TextView
+                            android:id="@+id/datatxt"
+                            style="@style/txtInterbold26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_marginTop="@dimen/_15pxv"
+                            android:layout_marginBottom="@dimen/_15pxv"
+                            android:layout_weight="0.55"
+                            android:ellipsize="end"
+                            android:singleLine="false"
+                            android:text="Data dolaczenia: "
+                            android:textAllCaps="true"
+                            android:textColor="#FF5722"
+                            android:textSize="16sp"
+                            android:visibility="visible" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/linearColumndodatkowefunkc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
