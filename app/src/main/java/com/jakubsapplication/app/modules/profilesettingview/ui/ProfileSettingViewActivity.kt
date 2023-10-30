@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -33,6 +34,7 @@ class ProfileSettingViewActivity :
     private val viewModel: ProfileSettingViewVM by viewModels<ProfileSettingViewVM>()
 
     var pole = ""
+    var pole1 = ""
 
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
@@ -41,6 +43,10 @@ class ProfileSettingViewActivity :
         val button = findViewById<Button>(R.id.button_change_username)
         val username_edit = findViewById<TextInputLayout>(R.id.input)
         val button_accept = findViewById<Button>(R.id.button_accept_name)
+        val button_Car = findViewById<Button>(R.id.button_change_car)
+        val car_info = findViewById<TextView>(R.id.txtCar)
+        val editcar = findViewById<TextInputLayout>(R.id.editcar)
+        val button_car_edit = findViewById<Button>(R.id.button_accept_car)
         val db = FirebaseFirestore.getInstance()
         val kolekcjaRef = db.collection("QRAuth")
         update()
@@ -58,7 +64,13 @@ class ProfileSettingViewActivity :
                         editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
                         val inputLayout = editText.parent.parent as TextInputLayout
                         editText.addTextChangedListener(object : TextWatcher {
-                            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                                if (s?.length ?: 0 > maxLength) {
+                                    inputLayout.error = "Przekroczono limit znaków"
+                                } else {
+                                    inputLayout.error = null
+                                }
+                            }
 
                             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                                 if (s?.length ?: 0 > maxLength) {
@@ -91,6 +103,8 @@ class ProfileSettingViewActivity :
             username.visibility = View.VISIBLE
             username_edit.visibility = View.GONE
             button.visibility = View.VISIBLE
+            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(button_accept.windowToken, 0)
         }
 
         button.setOnClickListener {
@@ -98,11 +112,71 @@ class ProfileSettingViewActivity :
             username_edit.visibility = View.VISIBLE
             button.visibility = View.GONE
         }
+        button_Car.setOnClickListener {
+            car_info.visibility = View.GONE
+            editcar.visibility = View.VISIBLE
+            button_Car.visibility = View.GONE
+        }
+        button_car_edit.setOnClickListener {
 
+            val zapytanie = kolekcjaRef.whereEqualTo("car", pole1)
+            zapytanie.get()
+                .addOnSuccessListener { querySnapshot ->
+                    for (document in querySnapshot.documents) {
+                        val idDokumentu = document.id
+                        // Odebrane ID dokumentu znajduje się w zmiennej 'idDokumentu'
+                        val docRef = db.collection("QRAuth").document(idDokumentu)
+                        val editText: TextInputEditText = findViewById(R.id.txteditcar)
+                        val maxLength = 30 // Maksymalna liczba znaków
+                        editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+                        val inputLayout = editText.parent.parent as TextInputLayout
+                        editText.addTextChangedListener(object : TextWatcher {
+                            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                                if (s?.length ?: 0 > maxLength) {
+                                    inputLayout.error = "Przekroczono limit znaków"
+                                } else {
+                                    inputLayout.error = null
+                                }
+                            }
+
+                            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                                if (s?.length ?: 0 > maxLength) {
+                                    inputLayout.error = "Przekroczono limit znaków"
+                                } else {
+                                    inputLayout.error = null
+                                }
+                            }
+                            override fun afterTextChanged(s: Editable?) {}
+                        })
+
+                        val nowaWartoscCar = editText.text.toString()
+
+                        docRef.update("car", nowaWartoscCar)
+                            .addOnSuccessListener {
+                                // Sukces
+                                println("DZIALA")
+                            }
+                            .addOnFailureListener { e ->
+                                // Obsługa błędu
+                                println("NIE DZIALA")
+                            }
+                    }
+                }
+                .addOnFailureListener { e ->
+                    println("Błąd podczas wykonywania zapytania: $e")
+                }
+            update()
+            car_info.visibility = View.VISIBLE
+            button_Car.visibility = View.VISIBLE
+            editcar.visibility = View.GONE
+            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(button_car_edit.windowToken, 0)
+        }
     }
 
 
     fun update(){
+        val car_info = findViewById<TextView>(R.id.txtCar)
         val db = FirebaseFirestore.getInstance()
         val kolekcjaRef = db.collection("QRAuth")
         val username = findViewById<TextView>(R.id.txtUsername)
@@ -122,19 +196,24 @@ class ProfileSettingViewActivity :
                                 val data = documentSnapshot.data
                                 if (data != null) {
                                      pole = data["name"].toString()
-                                    if (pole != null) {
+                                    pole1 = data["car"].toString()
+                                    if (pole != null && pole1!= null) {
                                         println(pole)
                                         username.text = "$pole"
+                                        println(pole1)
+                                        car_info.text = "$pole1"
                                     }
                                 }
                             } else {
                                 println("Dokument nie istnieje")
                                 username.text = "Nie udalo sie zaladowac nicku"
+                                car_info.text = "Nie udalo sie zaladowac informacji o aucie"
                             }
                         }
                         .addOnFailureListener { e ->
                             println("Błąd pobierania dokumentu: $e")
                             username.text = "Nie udalo sie zaladowac nicku"
+                            car_info.text = "Nie udalo sie zaladowac informacji o aucie"
                         }
                     println("ID dokumentu: $idDokumentu")
                 }

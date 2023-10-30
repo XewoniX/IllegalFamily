@@ -78,7 +78,8 @@ class JoinToGroupViewActivity :
         val providers = user?.providerData
         data class Account(
             val adres_email: String,
-            val name: String
+            val name: String,
+            val car: String
         )
 
 
@@ -118,7 +119,7 @@ class JoinToGroupViewActivity :
                                                 val email = user?.email
                                                 val collectionReference = db.collection("QRAuth")
                                                 val data = hashMapOf("adres_email" to email)
-                                                val account = email?.let { Account(it,firstName) }
+                                                val account = email?.let { Account(it,firstName,"Uzupelnij swoj profil") }
                                                 if (account != null) {
                                                     collectionReference.add(account)
                                                         .addOnSuccessListener { documentReference ->
