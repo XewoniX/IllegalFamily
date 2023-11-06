@@ -6,15 +6,21 @@
     </data>
     <FrameLayout android:id="@+id/frameStack"
         android:layout_height="match_parent" android:layout_width="match_parent">
-        <FrameLayout android:id="@+id/frameStackbackground"
-            android:layout_gravity="start"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" style="@style/groupStyle">
 
-            <LinearLayout android:id="@+id/linearColumnhome"
-                android:layout_gravity="start"
+        <FrameLayout
+            android:id="@+id/frameStackbackground"
+            style="@style/groupStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#000000">
+
+            <LinearLayout
+                android:id="@+id/linearColumnhome"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
+                android:layout_gravity="start"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/linearColumnlineseven"
@@ -52,17 +58,18 @@
                         android:layout_width="@dimen/_360pxh"
                         android:layout_height="@dimen/_3pxv"
                         android:layout_gravity="start"
-                        android:background="@drawable/rectangle_gradient_s_orange_400_e_green_a400_f8" />
+                        android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnCzeWSobotJakiSpocik"
                         style="@style/btnGradientRounded"
                         android:layout_width="@dimen/_250pxh"
-                        android:layout_height="@dimen/_40pxv"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_marginStart="@dimen/_15pxh"
                         android:layout_marginTop="@dimen/_11pxv"
                         android:layout_marginEnd="@dimen/_15pxh"
+                        android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:paddingStart="@dimen/_20pxh"
@@ -70,19 +77,20 @@
                         android:paddingEnd="@dimen/_21pxh"
                         android:paddingBottom="@dimen/_12pxv"
                         android:singleLine="true"
-                        android:text="@string/msg_cze_w_sobot"
                         android:textAllCaps="true"
+                        android:textColor="#000000"
                         tools:text="@string/msg_cze_w_sobot" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnSiema"
                         style="@style/btnGradientRounded_1"
-                        android:layout_width="@dimen/_78pxh"
-                        android:layout_height="@dimen/_40pxv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_marginStart="@dimen/_50pxh"
                         android:layout_marginTop="@dimen/_14pxv"
                         android:layout_marginEnd="@dimen/_15pxh"
+                        android:background="@drawable/rectangle_gradient_s_grey_400_e_cyan_a202_radius_20"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:paddingStart="@dimen/_19pxh"
@@ -90,9 +98,10 @@
                         android:paddingEnd="@dimen/_20pxh"
                         android:paddingBottom="@dimen/_12pxv"
                         android:singleLine="true"
-                        android:text="@string/lbl_siema"
+                        android:text="afasfasf"
                         android:textAllCaps="true"
-                        tools:text="@string/lbl_siema" />
+                        android:textColor="#000000"
+                        tools:text="asfas" />
 
                     <TextView
                         android:id="@+id/txtTextBorder"

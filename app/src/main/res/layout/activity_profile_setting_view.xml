@@ -214,10 +214,10 @@
                             android:ellipsize="end"
                             android:gravity="top|start"
                             android:singleLine="true"
-                            android:text="Samochod:"
+                            android:text="Pojazd:"
                             android:textAllCaps="true"
                             android:textColor="#FF5722"
-                            tools:text="Samochod:" />
+                            tools:text="Pojazd:" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/editcar"
