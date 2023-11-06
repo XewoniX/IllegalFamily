@@ -3,18 +3,28 @@
     <data>
         <variable name="joinToGroupViewVM" type="com.jakubsapplication.app.modules.jointogroupview.data.viewmodel.JoinToGroupViewVM"/>
     </data>
-    <FrameLayout android:id="@+id/frameStack"
+
+    <FrameLayout
+        android:id="@+id/frameStack"
+        style="@style/groupStylegray_900"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" style="@style/groupStylegray_900">
-        <FrameLayout android:id="@+id/frameStacklogoone"
-            android:layout_gravity="start"
+        android:background="#000000">
+
+        <FrameLayout
+            android:id="@+id/frameStacklogoone"
+            style="@style/groupStylegray_900"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_width="match_parent" style="@style/groupStylegray_900">
+            android:layout_gravity="start"
+            android:background="#000000">
 
 
-            <FrameLayout android:id="@+id/frameStackbackground"
-                android:layout_gravity="start"
-                android:layout_height="match_parent" android:layout_width="match_parent">
+            <FrameLayout
+                android:id="@+id/frameStackbackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
 
                 <LinearLayout
                     android:id="@+id/camera_preview"

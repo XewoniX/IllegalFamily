@@ -5,9 +5,13 @@
     <data>
         <variable name="homeViewVM" type="com.jakubsapplication.app.modules.homeview.data.viewmodel.HomeViewVM"/>
     </data>
-    <FrameLayout android:id="@+id/frameStackbackground"
+
+    <FrameLayout
+        android:id="@+id/frameStackbackground"
+        style="@style/groupStyle"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" style="@style/groupStyle">
+        android:background="#000000">
 
         <FrameLayout
             android:id="@+id/buttonDelete"
