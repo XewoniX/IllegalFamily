@@ -86,6 +86,7 @@
                 app:tint="@color/white_A700" />
 
             <ScrollView
+                android:id="@+id/ScrollChat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="start|top"

@@ -12,7 +12,7 @@
 
     <application android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="Illegal Family Brodnica - Night Ride" android:largeHeap="true"
+        android:label="Illegal Family Brodnica" android:largeHeap="true"
         android:name="com.jakubsapplication.app.appcomponents.di.MyApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
