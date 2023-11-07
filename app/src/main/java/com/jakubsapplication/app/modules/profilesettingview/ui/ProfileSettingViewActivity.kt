@@ -70,9 +70,7 @@ class ProfileSettingViewActivity :
                 .addOnSuccessListener { querySnapshot ->
                     for (document in querySnapshot.documents) {
                         val idDokumentu = document.id
-                        // Odebrane ID dokumentu znajduje się w zmiennej 'idDokumentu'
                         val docRef = db.collection("QRAuth").document(idDokumentu)
-                        //val editText = findViewById<TextInputEditText>(R.id.editText)
                         val editText: TextInputEditText = findViewById(R.id.editText)
                         val maxLength = 20 // Maksymalna liczba znaków
                         editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
@@ -285,25 +283,6 @@ class ProfileSettingViewActivity :
         //useravatar.setImageBitmap(roundedBitmap)
 
     }
-
-    fun getRoundedBitmap(src: Bitmap): Bitmap {
-        val width = src.width
-        val height = src.height
-        val result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-
-        val canvas = Canvas(result)
-        val paint = Paint()
-        paint.isAntiAlias = true
-
-        val path = Path()
-        path.addCircle(width / 2f, height / 2f, Math.min(width, height) / 2f, Path.Direction.CW)
-
-        canvas.clipPath(path)
-        canvas.drawBitmap(src, 0f, 0f, paint)
-
-        return result
-    }
-
     override fun setUpClicks(): Unit {
         binding.frameCheckringligh.setOnClickListener {
             val destIntent = VotingViewActivity.getIntent(this, null)

@@ -4,13 +4,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jakubsapplication.app.R
+import com.jakubsapplication.app.modules.chatviewcontainer.ui.ChatViewContainerActivity
 
 data class Message(
     val senderEmail: String,
     val messageContent: String,
     val timestamp: Long
 )
-class MessageAdapter(private val messages: List<Message>) :
+class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity.Message>) :
     RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

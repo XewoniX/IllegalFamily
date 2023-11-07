@@ -60,6 +60,7 @@
                 android:layout_marginBottom="@dimen/_75pxv"
                 android:editable="true"
                 android:isScrollContainer="true"
+                android:keepScreenOn="true"
                 android:lineSpacingExtra="8sp"
                 android:padding="@dimen/_10pxv"
                 android:singleLine="false"
@@ -78,15 +79,17 @@
                 android:layout_marginTop="@dimen/_106pxv"
                 android:layout_marginEnd="@dimen/_5pxh"
                 android:layout_marginBottom="@dimen/_87pxv"
-                android:backgroundTint="@color/white_A700_26"
+                android:backgroundTint="#000000"
+                android:keepScreenOn="true"
                 app:fabCustomSize="@dimen/_40pxh"
                 app:srcCompat="@drawable/img_send"
                 app:tint="@color/white_A700" />
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="start|top"
+                android:layout_marginBottom="@dimen/_150pxh"
                 android:gravity="start"
                 android:isScrollContainer="true"
                 android:orientation="vertical">
@@ -109,6 +112,7 @@
                 android:layout_gravity="bottom|center"
                 android:layout_marginTop="@dimen/_10pxv"
                 android:layout_marginEnd="@dimen/_1pxh"
+                android:keepScreenOn="true"
                 android:orientation="vertical">
 
                 <LinearLayout
