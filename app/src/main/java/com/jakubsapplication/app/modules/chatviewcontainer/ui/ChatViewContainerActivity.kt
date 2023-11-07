@@ -8,6 +8,7 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
+import com.google.firebase.FirebaseApp
 import com.jakubsapplication.app.R
 import com.jakubsapplication.app.appcomponents.base.BaseActivity
 import com.jakubsapplication.app.databinding.ActivityChatViewContainerBinding
@@ -33,17 +34,14 @@ class ChatViewContainerActivity :
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE
     window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
-    val destFragment = ChatViewFragment.getInstance(null)
-    this.loadFragment(
-      R.id.frameStackbackground,
-      destFragment,
-      bundle = destFragment.arguments,
-      tag = ChatViewFragment.TAG,
-      addToBackStack = false,
-      add = false,
-      enter = null,
-      exit = null,
+    data class Message(
+      val senderEmail: String,
+      val messageContent: String,
+      val timestamp: Long
     )
+
+    FirebaseApp.initializeApp(this)
+
     }
 
     override fun setUpClicks(): Unit {

@@ -2,6 +2,11 @@ package com.jakubsapplication.app.modules.profilesettingview.ui
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
@@ -14,8 +19,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.graphics.drawable.toBitmap
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
@@ -265,12 +272,36 @@ class ProfileSettingViewActivity :
                 Glide.with(this)
                     .load(avatarUrl)
                     .diskCacheStrategy(DiskCacheStrategy.NONE) // Opcjonalnie: Wyłącz pamięć podręczną, jeśli obraz jest dynamiczny
-                    .skipMemoryCache(true) // Opcjonalnie: Wyłącz pamięć RAM, jeśli obraz jest dynamiczny
+                    .skipMemoryCache(true)
+                    .apply(RequestOptions.circleCropTransform())
                     .into(useravatar)
             } else {
                 println("Awatar użytkownika nie jest dostępny")
             }
         }
+
+        //val bitmap = (useravatar.drawable as BitmapDrawable).bitmap
+        //val roundedBitmap = getRoundedBitmap(bitmap)
+        //useravatar.setImageBitmap(roundedBitmap)
+
+    }
+
+    fun getRoundedBitmap(src: Bitmap): Bitmap {
+        val width = src.width
+        val height = src.height
+        val result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+        val canvas = Canvas(result)
+        val paint = Paint()
+        paint.isAntiAlias = true
+
+        val path = Path()
+        path.addCircle(width / 2f, height / 2f, Math.min(width, height) / 2f, Path.Direction.CW)
+
+        canvas.clipPath(path)
+        canvas.drawBitmap(src, 0f, 0f, paint)
+
+        return result
     }
 
     override fun setUpClicks(): Unit {
