@@ -36,7 +36,6 @@ class ChatViewContainerActivity :
         val messageContent: String,
         val timestamp: Long
     )
-
     private val messages = mutableListOf<Message>()
     private lateinit var adapter: MessageAdapter
     private lateinit var firestore: FirebaseFirestore
@@ -48,6 +47,7 @@ class ChatViewContainerActivity :
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerViewChat)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -79,6 +79,12 @@ class ChatViewContainerActivity :
 
                 adapter.notifyDataSetChanged()
             }
+        val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
+        val positionToScroll = adapter.itemCount - 1
+        recyclerView.scrollToPosition(positionToScroll)
+        scrollView.postDelayed({
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN)
+        }, 2000)
     }
 
     override fun onDestroy() {
@@ -88,9 +94,12 @@ class ChatViewContainerActivity :
     }
 
     override fun setUpClicks(): Unit {
-        val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
+
 
         binding.SendMessage.setOnClickListener {
+            val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
+            val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewChat)
+            val positionToScroll = adapter.itemCount - 1
             val user = Firebase.auth.currentUser
             val email = user?.email
             val chat_message = findViewById<TextInputEditText>(R.id.editTextChat)
@@ -119,8 +128,7 @@ class ChatViewContainerActivity :
             }
             val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(binding.SendMessage.windowToken, 0)
-            val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewChat)
-            val positionToScroll = adapter.itemCount - 1
+
             recyclerView.scrollToPosition(positionToScroll)
             scrollView.postDelayed({
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN)
