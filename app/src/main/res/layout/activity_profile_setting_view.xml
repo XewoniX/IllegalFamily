@@ -13,7 +13,8 @@
         android:id="@+id/frameStackbackground"
         style="@style/groupStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#000000">
 
         <LinearLayout
             android:id="@+id/linearColumnuser"
@@ -52,11 +53,11 @@
                             android:id="@+id/frameStackuser"
                             android:layout_width="@dimen/_110pxh"
                             android:layout_height="match_parent"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:scaleType="fitCenter"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            android:scaleType="fitCenter"></ImageView>
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"></ImageView>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/input"
@@ -72,8 +73,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Jak chcesz sie nazywac"
-                                android:maxLength="20"
-                                />
+                                android:maxLength="20" />
 
                             <Button
                                 android:id="@+id/button_accept_name"
@@ -146,7 +146,7 @@
                             android:singleLine="false"
                             android:text="Data dolaczenia: "
                             android:textAllCaps="true"
-                            android:textColor="#FF5722"
+                            android:textColor="#FF0000"
                             android:textSize="16sp"
                             android:visibility="visible" />
 
@@ -198,6 +198,7 @@
                             android:ellipsize="end"
                             android:singleLine="false"
                             android:textAllCaps="true"
+                            android:textColor="#FFFFFF"
                             android:textSize="20sp"
                             android:visibility="visible" />
 
@@ -216,7 +217,7 @@
                             android:singleLine="true"
                             android:text="Pojazd:"
                             android:textAllCaps="true"
-                            android:textColor="#FF5722"
+                            android:textColor="#FF0000"
                             tools:text="Pojazd:" />
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -256,7 +257,8 @@
             android:layout_width="@dimen/_359pxh"
             android:layout_height="@dimen/_95pxv"
             android:layout_gravity="bottom"
-            android:layout_marginTop="@dimen/_60pxv">
+            android:layout_marginTop="@dimen/_12pxv"
+            android:keepScreenOn="true">
 
             <FrameLayout
                 android:id="@+id/frameBottombar"
@@ -274,7 +276,8 @@
                     android:layout_marginTop="@dimen/_5pxv"
                     android:layout_marginBottom="@dimen/_5pxv"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/linearRowhome"
@@ -393,7 +396,7 @@
                 android:layout_gravity="bottom|center"
                 android:layout_marginStart="@dimen/_144pxh"
                 android:layout_marginEnd="@dimen/_144pxh"
-                android:background="@drawable/rectangle_gradient_s_purple_a400_26_c_purple_a400_26_e_orange_400_26_radius_30" />
+                android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20" />
 
             <ImageView
                 android:id="@+id/imageMenu"

@@ -4,15 +4,21 @@
     <data>
         <variable name="votingViewVM" type="com.jakubsapplication.app.modules.votingview.data.viewmodel.VotingViewVM"/>
     </data>
-    <FrameLayout android:id="@+id/frameStackbackground"
+
+    <FrameLayout
+        android:id="@+id/frameStackbackground"
+        style="@style/groupStyle"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" style="@style/groupStyle">
+        android:background="#000000">
 
         <FrameLayout
             android:id="@+id/frameMenu"
             android:layout_width="@dimen/_359pxh"
             android:layout_height="@dimen/_95pxv"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:keepScreenOn="true">
 
             <FrameLayout
                 android:id="@+id/frameBottombar"
@@ -30,7 +36,8 @@
                     android:layout_marginTop="@dimen/_5pxv"
                     android:layout_marginBottom="@dimen/_5pxv"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:id="@+id/linearRowhome"
@@ -133,9 +140,10 @@
                     android:id="@+id/imageLineFour"
                     android:layout_width="@dimen/_31pxh"
                     android:layout_height="@dimen/_3pxh"
-                    android:layout_gravity="bottom|right"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/_238pxh"
                     android:layout_marginTop="@dimen/_17pxv"
-                    android:layout_marginEnd="@dimen/_87pxh"
+                    android:layout_marginEnd="@dimen/_23pxh"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_line4"
                     tools:ignore="ContentDescription,ImageContrastCheck"
@@ -149,7 +157,7 @@
                 android:layout_gravity="bottom|center"
                 android:layout_marginStart="@dimen/_144pxh"
                 android:layout_marginEnd="@dimen/_144pxh"
-                android:background="@drawable/rectangle_gradient_s_purple_a400_26_c_purple_a400_26_e_orange_400_26_radius_30" />
+                android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20" />
 
             <ImageView
                 android:id="@+id/imageMenu"
@@ -165,13 +173,15 @@
                 tools:src="@drawable/img_menu" />
         </FrameLayout>
 
-        <ImageView android:id="@+id/imageBackground"
-            android:layout_gravity="start"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:scaleType="fitXY"
+        <ImageView
+            android:id="@+id/imageBackground"
             imageRes="@{@drawable/img_background}"
-            tools:ignore="ContentDescription" tools:src="@drawable/img_background"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_background" />
 
         <LinearLayout
             android:id="@+id/linearColumnhome"
@@ -230,6 +240,7 @@
                 android:layout_marginStart="@dimen/_15pxh"
                 android:layout_marginTop="@dimen/_17pxv"
                 android:layout_marginEnd="@dimen/_15pxh"
+                android:background="@drawable/rectangle_gradient_s_grey_400_e_cyan_a202_radius_20"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:paddingStart="@dimen/_30pxh"
@@ -249,6 +260,7 @@
                 android:layout_marginStart="@dimen/_15pxh"
                 android:layout_marginTop="@dimen/_17pxv"
                 android:layout_marginEnd="@dimen/_15pxh"
+                android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:paddingStart="@dimen/_30pxh"
