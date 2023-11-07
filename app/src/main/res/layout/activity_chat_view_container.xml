@@ -157,6 +157,18 @@
                             tools:ignore="ContentDescription"
                             tools:src="@drawable/img_subtract" />
 
+                        <ImageView
+                            android:id="@+id/imageLineFour"
+                            android:layout_width="@dimen/_31pxh"
+                            android:layout_height="@dimen/_3pxh"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="@dimen/_23pxh"
+                            android:layout_marginTop="@dimen/_17pxv"
+                            android:layout_marginEnd="@dimen/_23pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_line4"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_line4" />
                     </FrameLayout>
 
                     <View
