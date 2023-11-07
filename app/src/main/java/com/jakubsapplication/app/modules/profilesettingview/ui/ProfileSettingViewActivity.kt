@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageView
@@ -40,6 +41,11 @@ class ProfileSettingViewActivity :
     override fun onInitialized(): Unit {
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         binding.profileSettingViewVM = viewModel
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         val username = findViewById<TextView>(R.id.txtUsername)
         val button = findViewById<Button>(R.id.button_change_username)
         val username_edit = findViewById<TextInputLayout>(R.id.input)
@@ -280,7 +286,7 @@ class ProfileSettingViewActivity :
             val destIntent = ChatViewContainerActivity.getIntent(this, null)
             startActivity(destIntent)
         }
-        binding.frameBottombar.setOnClickListener {
+        binding.imageHome.setOnClickListener {
             val destIntent = HomeViewActivity.getIntent(this, null)
             startActivity(destIntent)
         }
@@ -288,8 +294,6 @@ class ProfileSettingViewActivity :
 
     companion object {
         const val TAG: String = "PROFILE_SETTING_VIEW_ACTIVITY"
-
-
         fun getIntent(context: Context, bundle: Bundle?): Intent {
             val destIntent = Intent(context, ProfileSettingViewActivity::class.java)
             destIntent.putExtra("bundle", bundle)

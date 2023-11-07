@@ -3,6 +3,8 @@ package com.jakubsapplication.app.modules.votingview.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.jakubsapplication.app.R
 import com.jakubsapplication.app.appcomponents.base.BaseActivity
@@ -21,6 +23,10 @@ class VotingViewActivity : BaseActivity<ActivityVotingViewBinding>(R.layout.acti
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.votingViewVM = viewModel
+
+    window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
   }
 
   override fun setUpClicks(): Unit {
