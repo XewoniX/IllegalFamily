@@ -41,7 +41,7 @@
             android:gravity="top|start"
             android:text="@{homeViewVM.homeViewModel.txtDescription}"
             android:textAllCaps="true"
-            android:textColor="#A32B00"
+            android:textColor="#FF0000"
             android:textSize="20sp" />
 
         <TextView
@@ -57,7 +57,7 @@
             android:gravity="top|start"
             android:text="@{homeViewVM.homeViewModel.txtDescription}"
             android:textAllCaps="true"
-            android:textColor="#A1887F" />
+            android:textColor="#FFFFFF" />
 
     </FrameLayout>
 

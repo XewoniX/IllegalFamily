@@ -8,7 +8,8 @@
         android:id="@+id/frameStackbackground"
         style="@style/groupStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#000000">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -34,9 +35,11 @@
 
                 <FrameLayout
                     android:id="@+id/frameMenu"
-                    android:layout_width="@dimen/_359pxh"
-                    android:layout_height="@dimen/_95pxv"
-                    android:layout_marginTop="@dimen/_12pxv">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/_12pxv"
+                    android:keepScreenOn="true">
 
                     <FrameLayout
                         android:id="@+id/frameBottombar"
@@ -54,7 +57,8 @@
                             android:layout_marginTop="@dimen/_5pxv"
                             android:layout_marginBottom="@dimen/_5pxv"
                             android:baselineAligned="false"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            tools:ignore="UselessParent">
 
                             <LinearLayout
                                 android:id="@+id/linearRowhome"
@@ -153,6 +157,18 @@
                             tools:ignore="ContentDescription"
                             tools:src="@drawable/img_subtract" />
 
+                        <ImageView
+                            android:id="@+id/imageLineFour"
+                            android:layout_width="@dimen/_31pxh"
+                            android:layout_height="@dimen/_3pxh"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="@dimen/_23pxh"
+                            android:layout_marginTop="@dimen/_17pxv"
+                            android:layout_marginEnd="@dimen/_23pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_line4"
+                            tools:ignore="ContentDescription,ImageContrastCheck"
+                            tools:src="@drawable/img_line4" />
                     </FrameLayout>
 
                     <View
@@ -162,7 +178,7 @@
                         android:layout_gravity="bottom|center"
                         android:layout_marginStart="@dimen/_144pxh"
                         android:layout_marginEnd="@dimen/_144pxh"
-                        android:background="@drawable/rectangle_gradient_s_orange_400_e_cyan_a202_radius_20" />
+                        android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20" />
 
                     <ImageView
                         android:id="@+id/imageMenu"
