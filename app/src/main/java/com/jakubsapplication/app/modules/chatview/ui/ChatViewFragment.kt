@@ -1,33 +1,20 @@
 package com.jakubsapplication.app.modules.chatview.ui
 
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.fragment.app.viewModels
+import com.jakubsapplication.app.R
 import com.jakubsapplication.app.appcomponents.base.BaseFragment
 import com.jakubsapplication.app.databinding.FragmentChatViewBinding
 import com.jakubsapplication.app.modules.chatview.`data`.viewmodel.ChatViewVM
 import kotlin.String
 import kotlin.Unit
-import ItemAdapter
-import ItemModel
-import android.content.Context
-import android.content.Intent
-import android.widget.FrameLayout
-import android.widget.TextView
-import androidx.activity.viewModels
-import com.jakubsapplication.app.R
-
-
 
 class ChatViewFragment : BaseFragment<FragmentChatViewBinding>(R.layout.fragment_chat_view) {
   private val viewModel: ChatViewVM by viewModels<ChatViewVM>()
 
   override fun onInitialized(): Unit {
-
     viewModel.navArguments = arguments
     binding.chatViewVM = viewModel
-
   }
 
   override fun setUpClicks(): Unit {
