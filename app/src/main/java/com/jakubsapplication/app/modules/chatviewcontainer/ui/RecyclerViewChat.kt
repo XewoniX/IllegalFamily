@@ -7,6 +7,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jakubsapplication.app.R
+import com.jakubsapplication.app.modules.chatviewcontainer.ui.ChatViewContainerActivity
 
 data class Message(
     val senderEmail: String,
@@ -14,7 +15,8 @@ data class Message(
     val timestamp: Long
 )
 var pole = ""
-class MessageAdapter(private val messages: List<Message>) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
+class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity.Message>) :
+    RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val senderEmailTextView: TextView = itemView.findViewById(R.id.senderEmailTextView)
@@ -22,7 +24,8 @@ class MessageAdapter(private val messages: List<Message>) : RecyclerView.Adapter
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_message, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_message_moja, parent, false)
         return MessageViewHolder(itemView)
     }
 
