@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_100pxv"
+    android:layout_marginEnd="@dimen/_100pxv"
     android:orientation="vertical">
 
     <TextView
@@ -13,13 +13,14 @@
         android:text="Sender Email"
         android:textColor="#FFFFFF"
         android:textSize="9sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/frameStackdescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_bg_white_a700_26_radius_30">
+        android:background="@drawable/rectangle_gradient_s_grey_400_e_cyan_a202_radius_20">
 
         <TextView
             android:id="@+id/messageContentTextView"

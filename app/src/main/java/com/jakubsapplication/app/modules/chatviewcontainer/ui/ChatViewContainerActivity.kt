@@ -37,7 +37,6 @@ class ChatViewContainerActivity :
   private lateinit var firestore: FirebaseFirestore
   private var messageListener: ListenerRegistration? = null
   override fun onInitialized(): Unit {
-    val db = FirebaseFirestore.getInstance()
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.chatViewContainerVM = viewModel
 
