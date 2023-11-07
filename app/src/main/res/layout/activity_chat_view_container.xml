@@ -40,7 +40,7 @@
             android:layout_width="@dimen/_360pxh"
             android:layout_height="@dimen/_3pxv"
             android:layout_gravity="start"
-            android:background="@drawable/rectangle_gradient_s_orange_400_e_green_a400_f8" />
+            android:background="@drawable/rectangle_gradient_s_grey_400_e_cyan_a202_radius_20" />
 
         <FrameLayout
             android:id="@+id/frameStackbackground"
@@ -66,7 +66,7 @@
                 android:singleLine="false"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 android:typeface="normal" />
 
@@ -82,8 +82,9 @@
                 android:backgroundTint="#000000"
                 android:keepScreenOn="true"
                 app:fabCustomSize="@dimen/_40pxh"
+                app:rippleColor="@color/viewfinder_laser"
                 app:srcCompat="@drawable/img_send"
-                app:tint="@color/white_A700" />
+                app:tint="@color/white" />
 
             <ScrollView
                 android:id="@+id/ScrollChat"
