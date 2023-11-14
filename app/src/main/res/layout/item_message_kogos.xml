@@ -19,7 +19,7 @@
 
     <FrameLayout
         android:id="@+id/frameStackdescription"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_gradient_s_grey_400_e_cyan_a202_radius_20">
 
@@ -27,9 +27,15 @@
             android:id="@+id/messageContentTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_20pxv"
+            android:padding="@dimen/_16pxv"
+            android:paddingStart="@dimen/_16pxv"
+            android:paddingLeft="@dimen/_16pxv"
+            android:paddingTop="@dimen/_10pxv"
+            android:paddingEnd="@dimen/_16pxv"
+            android:paddingRight="@dimen/_16pxv"
+            android:paddingBottom="@dimen/_10pxv"
             android:text="Message Content"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:textSize="20sp" />
 
     </FrameLayout>
