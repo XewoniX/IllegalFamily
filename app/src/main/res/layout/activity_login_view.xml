@@ -48,37 +48,30 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start">
 
-                <LinearLayout
-                    android:id="@+id/qrScanner"
-                    style="@style/groupStylecornerRadius"
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnZalogujPrzezGoogle"
+                    style="@style/btnWhiteRoundedOutline"
                     android:layout_width="match_parent"
-                    android:layout_height="182dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_40pxh"
-                    android:layout_marginTop="@dimen/_400pxv"
-                    android:layout_marginEnd="@dimen/_40pxh"
-                    android:layout_marginBottom="@dimen/_240pxv"
-                    android:orientation="vertical">
+                    android:layout_height="156dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/_30pxv"
+                    android:layout_marginTop="@dimen/_20pxv"
+                    android:layout_marginEnd="@dimen/_30pxv"
+                    android:layout_marginBottom="@dimen/_100pxv"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_12pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_12pxv"
+                    android:singleLine="true"
+                    android:text="@string/msg_zaloguj_przez_g"
+                    android:textAllCaps="false"
+                    android:textSize="25sp"
+                    tools:text="@string/msg_zaloguj_przez_g" />
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnZalogujPrzezGoogle"
-                        style="@style/btnWhiteRoundedOutline"
-                        android:layout_width="match_parent"
-                        android:layout_height="156dp"
-                        android:layout_marginTop="@dimen/_20pxv"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:paddingStart="@dimen/_30pxh"
-                        android:paddingTop="@dimen/_12pxv"
-                        android:paddingEnd="@dimen/_30pxh"
-                        android:paddingBottom="@dimen/_12pxv"
-                        android:singleLine="true"
-                        android:text="@string/msg_zaloguj_przez_g"
-                        android:textAllCaps="false"
-                        android:textSize="25sp"
-                        tools:text="@string/msg_zaloguj_przez_g" />
 
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/txtAbydoczydo"

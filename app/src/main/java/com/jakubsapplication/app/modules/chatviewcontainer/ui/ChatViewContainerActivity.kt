@@ -79,12 +79,7 @@ class ChatViewContainerActivity :
 
                 adapter.notifyDataSetChanged()
             }
-        val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
-        val positionToScroll = adapter.itemCount - 1
-        recyclerView.scrollToPosition(positionToScroll)
-        scrollView.postDelayed({
-            scrollView.fullScroll(ScrollView.FOCUS_DOWN)
-        }, 2000)
+
     }
 
     override fun onDestroy() {
@@ -95,11 +90,10 @@ class ChatViewContainerActivity :
 
     override fun setUpClicks(): Unit {
 
-
+        var positionToScroll = adapter.itemCount - 1
         binding.SendMessage.setOnClickListener {
             val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewChat)
-            val positionToScroll = adapter.itemCount - 1
             val user = Firebase.auth.currentUser
             val email = user?.email
             val chat_message = findViewById<TextInputEditText>(R.id.editTextChat)
@@ -128,7 +122,7 @@ class ChatViewContainerActivity :
             }
             val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(binding.SendMessage.windowToken, 0)
-
+            positionToScroll = adapter.itemCount - 1
             recyclerView.scrollToPosition(positionToScroll)
             scrollView.postDelayed({
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN)

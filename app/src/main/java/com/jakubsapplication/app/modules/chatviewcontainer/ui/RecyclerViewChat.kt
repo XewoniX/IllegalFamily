@@ -91,6 +91,9 @@ class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity
                 println("Błąd podczas wykonywania zapytania: $e")
             }
         holder.messageContentTextView.text = message.messageContent
+
+
+
     /*    if(email == message.senderEmail)
         {
             holder.senderEmailTextView.visibility = View.GONE

@@ -24,9 +24,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    //apply plugin: 'com.google.gms.google-services'
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\xewon\\Documents\\GitHub\\IllegalFamily\\nazwa-keystore.jks')
+            storePassword 'Okonokon123'
+            keyAlias 'nazwa-aliasu'
+            keyPassword 'Okonokon123'
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
