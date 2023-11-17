@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +19,9 @@
         android:name="com.jakubsapplication.app.appcomponents.di.MyApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="62:83:B8:6C:E6:58:2A:36:F2:85:5D:73:84:0D:3B:3C:8E:A4:97:79" />
         <activity android:exported="true"
             android:name="com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity" android:screenOrientation="portrait">
             <intent-filter>
