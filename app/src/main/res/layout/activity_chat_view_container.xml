@@ -86,26 +86,32 @@
                 app:srcCompat="@drawable/img_send"
                 app:tint="@color/white" />
 
-            <ScrollView
-                android:id="@+id/ScrollChat"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="start|top"
                 android:layout_marginBottom="@dimen/_150pxh"
-                android:gravity="start"
-                android:isScrollContainer="true"
                 android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewChat"
+                <ScrollView
+                    android:id="@+id/ScrollChat"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:clipToPadding="false"
-                    android:scrollIndicators="top">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start|top"
+                    android:gravity="start"
+                    android:isScrollContainer="true"
+                    android:orientation="vertical">
 
-                </androidx.recyclerview.widget.RecyclerView>
-            </ScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewChat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:clipToPadding="false"
+                        android:scrollIndicators="top">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </ScrollView>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearColumnhome"

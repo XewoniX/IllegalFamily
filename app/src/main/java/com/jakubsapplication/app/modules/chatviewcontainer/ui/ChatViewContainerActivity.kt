@@ -41,6 +41,11 @@ class ChatViewContainerActivity :
     private lateinit var firestore: FirebaseFirestore
     private var messageListener: ListenerRegistration? = null
     override fun onInitialized(): Unit {
+
+        val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
+        scrollView.postDelayed({
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN)
+        }, 500)
         viewModel.navArguments = intent.extras?.getBundle("bundle")
         binding.chatViewContainerVM = viewModel
 
@@ -90,8 +95,9 @@ class ChatViewContainerActivity :
 
     override fun setUpClicks(): Unit {
 
-        var positionToScroll = adapter.itemCount - 1
+
         binding.SendMessage.setOnClickListener {
+            var positionToScroll = adapter.itemCount - 1
             val scrollView = findViewById<ScrollView>(R.id.ScrollChat)
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewChat)
             val user = Firebase.auth.currentUser
@@ -120,13 +126,13 @@ class ChatViewContainerActivity :
                     "Nie mozna wyslac pustej wiadomosci.", Toast.LENGTH_SHORT
                 ).show();
             }
-            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(binding.SendMessage.windowToken, 0)
-            positionToScroll = adapter.itemCount - 1
             recyclerView.scrollToPosition(positionToScroll)
             scrollView.postDelayed({
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN)
             }, 500)
+            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(binding.SendMessage.windowToken, 0)
+
 
         }
         binding.imageLineOne.setOnClickListener {
