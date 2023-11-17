@@ -5,7 +5,7 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -19,9 +19,12 @@
         android:name="com.jakubsapplication.app.appcomponents.di.MyApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <meta-data
            android:name="com.google.android.geo.API_KEY"
-            android:value="62:83:B8:6C:E6:58:2A:36:F2:85:5D:73:84:0D:3B:3C:8E:A4:97:79" />
+            android:value="AIzaSyBTaJ9Qqt5r6XHD52_tBms1-ePbRBY3ZoY" />
         <activity android:exported="true"
             android:name="com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity" android:screenOrientation="portrait">
             <intent-filter>
