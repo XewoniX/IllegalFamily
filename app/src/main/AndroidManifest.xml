@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest package="com.jakubsapplication.app" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -20,7 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true" android:theme="@style/Theme.MyApp" android:usesCleartextTraffic="true">
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
+           android:name="com.google.android.geo.API_KEY"
             android:value="62:83:B8:6C:E6:58:2A:36:F2:85:5D:73:84:0D:3B:3C:8E:A4:97:79" />
         <activity android:exported="true"
             android:name="com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity" android:screenOrientation="portrait">

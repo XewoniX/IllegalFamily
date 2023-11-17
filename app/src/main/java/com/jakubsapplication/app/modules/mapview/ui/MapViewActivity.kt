@@ -2,20 +2,14 @@ package com.jakubsapplication.app.modules.mapview.ui
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.location.LocationRequest
 import android.os.Bundle
-import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.jakubsapplication.app.Manifest
 import com.jakubsapplication.app.R
 import com.jakubsapplication.app.appcomponents.base.BaseActivity
 import com.jakubsapplication.app.databinding.ActivityMapViewBinding
@@ -42,11 +36,10 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
     val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     mapFragment.getMapAsync { googleMap ->
       // Włączanie funkcji śledzenia lokalizacji
-     // googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-     // googleMap.uiSettings.isZoomControlsEnabled = true // Włącz suwak zoomu
-     // googleMap.uiSettings.isCompassEnabled = true // Włącz kompas
-    //  googleMap.uiSettings.isMapToolbarEnabled = true // Włącz pasek narzędzi mapy
-
+      googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+      googleMap.uiSettings.isZoomControlsEnabled = true // Włącz suwak zoomu
+      googleMap.uiSettings.isCompassEnabled = true // Włącz kompas
+      googleMap.uiSettings.isMapToolbarEnabled = true // Włącz pasek narzędzi mapy
 
 
       val specificLocation = LatLng(51.5074, -0.1278) // Londyn jako przykład
@@ -57,8 +50,8 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
       // Lub z animacją
       googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(specificLocation, 15f))
 
-    }
 
+    }
   }
 
   override fun setUpClicks(): Unit {
