@@ -23,7 +23,7 @@ import com.jakubsapplication.app.databinding.ActivityLoginViewBinding
 import com.jakubsapplication.app.modules.loginview.`data`.viewmodel.LoginViewVM
 import kotlin.String
 import kotlin.Unit
-
+val tag = "[INFO_ID]"
 @Suppress("DEPRECATION")
 class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activity_login_view) {
     private val viewModel: LoginViewVM by viewModels()
@@ -35,10 +35,10 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.existing_default_web_client_id))
             .requestEmail()
             .build()
-
+       // println("$tag" + getString(R.string.default_web_client_id))
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         val button = findViewById<Button>(R.id.btnZalogujPrzezGoogle)

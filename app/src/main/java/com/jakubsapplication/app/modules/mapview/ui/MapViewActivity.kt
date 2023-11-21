@@ -31,24 +31,29 @@ private val REQUEST_LOCATION_PERMISSION = 1
 class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_map_view) {
   private val viewModel: MapViewVM by viewModels<MapViewVM>()
 
-  override fun onInitialized(): Unit {
+  override fun onInitialized() {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.mapViewVM = viewModel
-    window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    window.decorView.systemUiVisibility =
+      View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
     window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
-
-    if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-      != PackageManager.PERMISSION_GRANTED) {
+    val locationPermission =
+      ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+    if (locationPermission != PackageManager.PERMISSION_GRANTED) {
       // Brak uprawnień, więc należy poprosić użytkownika o nie
       ActivityCompat.requestPermissions(
         this,
         arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-        REQUEST_LOCATION_PERMISSION // Twój własny kod żądania uprawnień
+        REQUEST_LOCATION_PERMISSION
       )
     } else {
-      val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+      setupMap()
+    }
+  }
+  private fun setupMap() {
+    val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+    mapFragment.getMapAsync { googleMap ->
       if (ActivityCompat.checkSelfPermission(
           this,
           Manifest.permission.ACCESS_FINE_LOCATION
@@ -57,35 +62,13 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
           Manifest.permission.ACCESS_COARSE_LOCATION
         ) != PackageManager.PERMISSION_GRANTED
       ) {
-        return
+
       }
-      fusedLocationClient.lastLocation
-        .addOnSuccessListener { location ->
-          if (location != null) {
-            // Tutaj uzyskujesz aktualną lokalizację (location.latitude, location.longitude)
-            val currentLatLng = LatLng(location.latitude, location.longitude)
-
-            // Wstaw mapę do fragmentu
-            val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-            mapFragment.getMapAsync { googleMap ->
-              // Ustaw kamerę na aktualnej lokalizacji
-              googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
-            }
-          }
-        }
-        .addOnFailureListener { exception ->
-          // Obsługa błędów w przypadku nieudanej próby uzyskania lokalizacji
-        }
-    }
-
-    val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-    val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-    mapFragment.getMapAsync { googleMap ->
       googleMap.isMyLocationEnabled = true // Włączenie śledzenia lokalizacji użytkownika
       googleMap.uiSettings.isCompassEnabled = true // Włączenie kompasu
-      googleMap.uiSettings.isZoomControlsEnabled = true // Włączenie suwaka zoomu
 
-      val mapStyle = if (currentHour >= 18 || currentHour < 6) {
+      val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+      val mapStyle = if (currentHour >= 16 || currentHour < 8) {
         // Tryb ciemny po godzinie 18:00 lub przed 6:00 rano
         R.raw.dark_map
       } else {
@@ -96,9 +79,6 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
       // Ustawienie stylu mapy zgodnie z wyliczoną godziną
       googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, mapStyle))
 
-
-
-      // Uzyskanie aktualnej lokalizacji i ustawienie jej jako środek mapy
       val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
       fusedLocationClient.lastLocation
         .addOnSuccessListener { location ->
@@ -108,31 +88,25 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
           }
         }
     }
-
   }
 
-  override fun setUpClicks(): Unit {
+  override fun setUpClicks() {
     binding.imageMenu.setOnClickListener {
-      val destIntent = ChatViewContainerActivity.getIntent(this, null)
-      startActivity(destIntent)
+      startActivity(ChatViewContainerActivity.getIntent(this, null))
     }
     binding.frameCheckringligh.setOnClickListener {
-      val destIntent = VotingViewActivity.getIntent(this, null)
-      startActivity(destIntent)
+      startActivity(VotingViewActivity.getIntent(this, null))
     }
     binding.imageUser.setOnClickListener {
-      val destIntent = ProfileSettingViewActivity.getIntent(this, null)
-      startActivity(destIntent)
+      startActivity(ProfileSettingViewActivity.getIntent(this, null))
     }
     binding.imageHome.setOnClickListener {
-      val destIntent = HomeViewActivity.getIntent(this, null)
-      startActivity(destIntent)
+      startActivity(HomeViewActivity.getIntent(this, null))
     }
   }
 
   companion object {
     const val TAG: String = "MAP_VIEW_ACTIVITY"
-
 
     fun getIntent(context: Context, bundle: Bundle?): Intent {
       val destIntent = Intent(context, MapViewActivity::class.java)
