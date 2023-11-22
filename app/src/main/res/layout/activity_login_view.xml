@@ -70,9 +70,6 @@
                     android:textAllCaps="false"
                     android:textSize="25sp"
                     tools:text="@string/msg_zaloguj_przez_g" />
-
-
-
                 <TextView
                     android:id="@+id/txtAbydoczydo"
                     style="@style/txtInterbold15"

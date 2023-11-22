@@ -10,6 +10,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
@@ -41,7 +42,7 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
        // println("$tag" + getString(R.string.default_web_client_id))
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val button = findViewById<Button>(R.id.btnZalogujPrzezGoogle)
+        val button = findViewById<AppCompatButton>(R.id.btnZalogujPrzezGoogle)
         button.setOnClickListener {
             val signInIntent = mGoogleSignInClient.signInIntent
             val user: FirebaseUser? = auth.currentUser
