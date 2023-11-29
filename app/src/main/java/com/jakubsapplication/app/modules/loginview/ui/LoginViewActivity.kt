@@ -1,29 +1,26 @@
 package com.jakubsapplication.app.modules.loginview.ui
 
 
+import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import android.widget.Button
+import androidx.activity.viewModels
+import androidx.appcompat.widget.AppCompatButton
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
-import android.content.Context
-import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.appcompat.widget.AppCompatButton
-import android.view.WindowManager
-import android.widget.Button
-import android.widget.Toast
-import androidx.activity.viewModels
-import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jakubsapplication.app.R
 import com.jakubsapplication.app.appcomponents.base.BaseActivity
 import com.jakubsapplication.app.databinding.ActivityLoginViewBinding
-import com.jakubsapplication.app.modules.loginview.`data`.viewmodel.LoginViewVM
-import kotlin.String
-import kotlin.Unit
+import com.jakubsapplication.app.modules.loginview.data.viewmodel.LoginViewVM
+
 val tag = "[INFO_ID]"
 @Suppress("DEPRECATION")
 class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activity_login_view) {
@@ -42,7 +39,7 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
        // println("$tag" + getString(R.string.default_web_client_id))
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val button = findViewById<AppCompatButton>(R.id.btnZalogujPrzezGoogle)
+        val button = findViewById<Button>(R.id.btnZalogujPrzezGoogle)
         button.setOnClickListener {
             val signInIntent = mGoogleSignInClient.signInIntent
             val user: FirebaseUser? = auth.currentUser

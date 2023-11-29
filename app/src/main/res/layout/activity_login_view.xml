@@ -48,28 +48,19 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start">
 
-
-                <androidx.appcompat.widget.AppCompatButton
+                <Button
                     android:id="@+id/btnZalogujPrzezGoogle"
-                    style="@style/btnWhiteRoundedOutline"
                     android:layout_width="match_parent"
-                    android:layout_height="156dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginStart="@dimen/_30pxv"
                     android:layout_marginTop="@dimen/_20pxv"
                     android:layout_marginEnd="@dimen/_30pxv"
                     android:layout_marginBottom="@dimen/_100pxv"
-                    android:ellipsize="end"
                     android:gravity="center"
-                    android:paddingStart="@dimen/_30pxh"
-                    android:paddingTop="@dimen/_12pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingBottom="@dimen/_12pxv"
-                    android:singleLine="true"
                     android:text="@string/msg_zaloguj_przez_g"
                     android:textAllCaps="false"
-                    android:textSize="25sp"
-                    tools:text="@string/msg_zaloguj_przez_g" />
+                    />
                 <TextView
                     android:id="@+id/txtAbydoczydo"
                     style="@style/txtInterbold15"
@@ -84,7 +75,7 @@
                     android:textAllCaps="true"
                     android:visibility="visible"
                     tools:ignore="TextSizeCheck"
-                    tools:text="@string/msg_aby_do_czy_do" />
+                    />
             </FrameLayout>
         </FrameLayout>
     </FrameLayout>
