@@ -143,8 +143,9 @@
                             android:layout_marginBottom="@dimen/_15pxv"
                             android:layout_weight="0.55"
                             android:ellipsize="end"
+                            android:fontFamily="sans-serif"
                             android:singleLine="false"
-                            android:text="Data dolaczenia: "
+                            android:text="Data dołączenia: "
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#FF0000"
@@ -215,6 +216,7 @@
                             android:layout_marginEnd="@dimen/_4pxh"
                             android:layout_marginBottom="@dimen/_13pxv"
                             android:ellipsize="end"
+                            android:fontFamily="sans-serif"
                             android:gravity="top|start"
                             android:singleLine="true"
                             android:text="Pojazd:"
@@ -245,6 +247,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Marka/model/silnik" />
+
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </FrameLayout>
@@ -254,6 +257,15 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_315pxh"
+            android:layout_marginBottom="@dimen/_70pxh"
+            android:scaleType="center"
+            app:srcCompat="@drawable/logo_background" />
 
         <FrameLayout
             android:id="@+id/frameMenu"

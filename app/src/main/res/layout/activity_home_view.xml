@@ -75,15 +75,7 @@
             android:textAllCaps="true"
             tools:ignore="TextSizeCheck" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_100pxh"
-            android:scaleType="center"
-            app:srcCompat="@drawable/logo_background" />
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="628dp"
             android:layout_gravity="start|top"
@@ -102,7 +94,7 @@
                 android:scrollIndicators="top">
 
             </androidx.recyclerview.widget.RecyclerView>
-        </ScrollView>
+        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/frameMenu"
