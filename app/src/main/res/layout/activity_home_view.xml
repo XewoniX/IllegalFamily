@@ -44,6 +44,14 @@
             android:background="@drawable/rectangle_bg_white_a700_26_radius_30"
             android:visibility="gone">
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_100pxh"
+                android:scaleType="center"
+                app:srcCompat="@drawable/logo_background" />
+
             <TextView
                 android:id="@+id/textAdd"
                 android:layout_width="wrap_content"
@@ -66,6 +74,14 @@
             android:keepScreenOn="true"
             android:textAllCaps="true"
             tools:ignore="TextSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_100pxh"
+            android:scaleType="center"
+            app:srcCompat="@drawable/logo_background" />
 
         <ScrollView
             android:layout_width="match_parent"
