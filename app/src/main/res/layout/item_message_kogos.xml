@@ -27,7 +27,8 @@
             android:id="@+id/messageContentTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_16pxv"
+            android:autoText="false"
+            android:gravity="left"
             android:paddingStart="@dimen/_16pxv"
             android:paddingLeft="@dimen/_16pxv"
             android:paddingTop="@dimen/_10pxv"
@@ -36,7 +37,7 @@
             android:paddingBottom="@dimen/_10pxv"
             android:text="Message Content"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </FrameLayout>
 

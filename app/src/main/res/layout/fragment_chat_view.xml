@@ -6,15 +6,21 @@
     </data>
     <FrameLayout android:id="@+id/frameStack"
         android:layout_height="match_parent" android:layout_width="match_parent">
-        <FrameLayout android:id="@+id/frameStackbackground"
-            android:layout_gravity="start"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" style="@style/groupStyle">
 
-            <LinearLayout android:id="@+id/linearColumnhome"
-                android:layout_gravity="start"
+        <FrameLayout
+            android:id="@+id/frameStackbackground"
+            style="@style/groupStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@drawable/logo_background">
+
+            <LinearLayout
+                android:id="@+id/linearColumnhome"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
+                android:layout_gravity="start"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/linearColumnlineseven"

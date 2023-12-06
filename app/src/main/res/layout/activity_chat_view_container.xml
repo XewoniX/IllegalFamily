@@ -92,25 +92,16 @@
                 android:layout_marginBottom="@dimen/_150pxh"
                 android:orientation="vertical">
 
-                <ScrollView
-                    android:id="@+id/ScrollChat"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewChat"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start|top"
-                    android:gravity="start"
-                    android:isScrollContainer="true"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:clipToPadding="false"
+                    android:scrollIndicators="top">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewChat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:clipToPadding="false"
-                        android:scrollIndicators="top">
+                </androidx.recyclerview.widget.RecyclerView>
 
-                    </androidx.recyclerview.widget.RecyclerView>
-                </ScrollView>
             </LinearLayout>
 
             <LinearLayout
