@@ -141,6 +141,12 @@ class VotingViewActivity : BaseActivity<ActivityVotingViewBinding>(R.layout.acti
                                 val documentCount = querySnapshot?.size() ?: 0
                                 println("Ilość dokumentów w kolekcji $collectionName, gdzie pole 'Vote' ma wartość $targetVoteValue0: $documentCount")
                                 nie = documentCount
+                                println("LICZENIE")
+                                val procentTak = 100*tak/suma
+                                val procentNie = 100*nie/suma
+
+                                btnTak.text = procentTak.toString() + "%"
+                                btnNie.text = procentNie.toString() + "%"
                             } else {
                                 println("Wystąpił błąd: ${task.exception?.message}")
                             }
@@ -154,12 +160,7 @@ class VotingViewActivity : BaseActivity<ActivityVotingViewBinding>(R.layout.acti
                 println("Wystąpił błąd: ${task.exception?.message}")
             }
         })
-        println("LICZENIE")
-        val procentTak = 100*tak/suma
-        val procentNie = 100*nie/suma
 
-        btnTak.text = procentTak.toString() + "%"
-        btnNie.text = procentNie.toString() + "%"
 
     }
     override fun setUpClicks(): Unit {
