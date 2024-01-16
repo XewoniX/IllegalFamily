@@ -37,7 +37,6 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
     window.decorView.systemUiVisibility =
       View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
     window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
     val locationPermission =
       ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
     if (locationPermission != PackageManager.PERMISSION_GRANTED) {
@@ -62,7 +61,6 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
           Manifest.permission.ACCESS_COARSE_LOCATION
         ) != PackageManager.PERMISSION_GRANTED
       ) {
-
       }
       googleMap.isMyLocationEnabled = true // Włączenie śledzenia lokalizacji użytkownika
       googleMap.uiSettings.isCompassEnabled = true // Włączenie kompasu
@@ -75,7 +73,6 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
         // Tryb jasny w innych godzinach
         R.raw.standard_map
       }
-
       // Ustawienie stylu mapy zgodnie z wyliczoną godziną
       googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, mapStyle))
 
