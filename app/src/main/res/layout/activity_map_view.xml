@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="mapViewVM" type="com.jakubsapplication.app.modules.mapview.data.viewmodel.MapViewVM"/>
+
+        <variable
+            name="mapViewVM"
+            type="com.jakubsapplication.app.modules.mapview.data.viewmodel.MapViewVM" />
     </data>
 
     <FrameLayout
@@ -187,8 +191,8 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_100pxv" />
-
+                style="@style/btnGradientRoundedOutline_3"
+                />
         </LinearLayout>
     </FrameLayout>
 
