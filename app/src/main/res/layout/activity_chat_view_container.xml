@@ -160,31 +160,31 @@
                                 <LinearLayout
                                     android:id="@+id/linearRowhome"
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginTop="@dimen/_3pxv"
                                     android:layout_weight="0.49"
-                                    android:orientation="horizontal">
+                                    android:orientation="horizontal"
+                                    android:paddingTop="@dimen/_6pxv">
 
                                     <ImageView
                                         android:id="@+id/imageHome"
-                                        android:layout_width="@dimen/_24pxh"
-                                        android:layout_height="@dimen/_26pxh"
+                                        android:layout_width="@dimen/_32pxh"
+                                        android:layout_height="@dimen/_32pxh"
                                         android:layout_gravity="center"
                                         android:layout_marginStart="@dimen/_8pxh"
-                                        android:scaleType="centerCrop"
+                                        android:background="@drawable/rectangle_border_white_a700_radius_15_605"
+                                        android:scaleType="center"
                                         android:src="@drawable/img_home"
-                                        tools:ignore="ContentDescription,ImageContrastCheck"
-                                        tools:src="@drawable/img_home" />
+                                        tools:ignore="ContentDescription,ImageContrastCheck" />
 
                                     <ImageView
                                         android:id="@+id/imageMap"
-                                        android:layout_width="@dimen/_24pxh"
-                                        android:layout_height="@dimen/_26pxh"
+                                        android:layout_width="@dimen/_32pxh"
+                                        android:layout_height="@dimen/_32pxh"
                                         android:layout_gravity="center"
                                         android:layout_marginStart="@dimen/_44pxh"
-                                        android:layout_marginTop="@dimen/_5pxv"
-                                        android:layout_marginBottom="@dimen/_5pxv"
-                                        android:scaleType="centerCrop"
+                                        android:background="@drawable/rectangle_border_white_a700_radius_15_605"
+                                        android:scaleType="center"
                                         android:src="@drawable/img_map"
                                         tools:ignore="ContentDescription,ImageContrastCheck"
                                         tools:src="@drawable/img_map" />
@@ -195,44 +195,33 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_3pxv"
-                                    android:layout_weight="0.49"
+                                    android:layout_weight="0.50"
                                     android:orientation="horizontal">
 
-                                    <FrameLayout
-                                        android:id="@+id/frameCheckringligh"
-                                        style="@style/groupStylecornerRadius_2"
-                                        android:layout_width="@dimen/_24pxh"
-                                        android:layout_height="@dimen/_26pxv"
-                                        android:layout_marginStart="@dimen/_70pxv"
-                                        android:layout_marginTop="@dimen/_8pxv"
-                                        android:layout_marginBottom="@dimen/_5pxv">
-
-                                        <ImageView
-                                            android:id="@+id/imageLineOne"
-                                            android:layout_width="@dimen/_13pxh"
-                                            android:layout_height="@dimen/_10pxh"
-                                            android:layout_gravity="center"
-                                            android:layout_marginTop="@dimen/_10pxv"
-                                            android:layout_marginBottom="@dimen/_10pxv"
-                                            android:scaleType="fitXY"
-                                            android:src="@drawable/img_line1"
-                                            tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
-                                            tools:src="@drawable/img_line1"/>
-                                    </FrameLayout>
+                                    <ImageView
+                                        android:id="@+id/imageLineOne"
+                                        android:layout_width="@dimen/_32pxh"
+                                        android:layout_height="@dimen/_32pxh"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="@dimen/_68pxv"
+                                        android:layout_marginTop="@dimen/_3pxv"
+                                        android:background="@drawable/rectangle_border_white_a700_radius_15_605"
+                                        android:scaleType="center"
+                                        android:src="@drawable/img_line1"
+                                        tools:ignore="ContentDescription,ImageContrastCheck"
+                                        tools:src="@drawable/img_line1" />
 
                                     <ImageView
                                         android:id="@+id/imageUser"
-                                        android:layout_width="@dimen/_24pxh"
-                                        android:layout_height="@dimen/_26pxh"
+                                        android:layout_width="@dimen/_36pxh"
+                                        android:layout_height="@dimen/_36pxh"
                                         android:layout_gravity="center"
-                                        android:layout_marginStart="@dimen/_38pxh"
-                                        android:layout_marginTop="@dimen/_5pxv"
-                                        android:layout_marginEnd="@dimen/_5pxh"
-                                        android:layout_marginBottom="@dimen/_5pxv"
-                                        android:scaleType="centerCrop"
+                                        android:layout_marginStart="@dimen/_35pxh"
+                                        android:scaleType="fitXY"
                                         android:src="@drawable/img_user"
                                         tools:ignore="ContentDescription,ImageContrastCheck"
                                         tools:src="@drawable/img_user" />
+
                                 </LinearLayout>
                             </LinearLayout>
                         </FrameLayout>
