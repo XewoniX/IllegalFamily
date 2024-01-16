@@ -239,21 +239,21 @@ class ProfileSettingViewActivity :
                                         println(pole1)
                                         car_info.text = "$pole1"
                                         println(pole2)
-                                        datatxt.text = "Data dolaczenia: $pole2"
+                                        datatxt.text = "Data dołączenia: $pole2"
                                     }
                                 }
                             } else {
                                 println("Dokument nie istnieje")
-                                username.text = "Nie udalo sie zaladowac nicku"
-                                car_info.text = "Nie udalo sie zaladowac informacji o aucie"
-                                datatxt.text = "Nie udalo sie zaladowac informacji o dacie dolaczenia"
+                                username.text = "Nie udało sie załadowac nicku"
+                                car_info.text = "Nie udało sie załadowac informacji o aucie"
+                                datatxt.text = "Nie udało sie załadowac informacji o dacie dołaczenia"
                             }
                         }
                         .addOnFailureListener { e ->
                             println("Błąd pobierania dokumentu: $e")
-                            username.text = "Nie udalo sie zaladowac nicku"
-                            car_info.text = "Nie udalo sie zaladowac informacji o aucie"
-                            datatxt.text = "Nie udalo sie zaladowac informacji o dacie dolaczenia"
+                            username.text = "Nie udało sie załadowac nicku"
+                            car_info.text = "Nie udało sie załadowac informacji o aucie"
+                            datatxt.text = "Nie udalo sie załadowac informacji o dacie dołaczenia"
                         }
                     println("ID dokumentu: $idDokumentu")
                 }
@@ -269,7 +269,7 @@ class ProfileSettingViewActivity :
                 val avatarUrl = photoUrl.toString()
                 Glide.with(this)
                     .load(avatarUrl)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE) // Opcjonalnie: Wyłącz pamięć podręczną, jeśli obraz jest dynamiczny
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
                     .apply(RequestOptions.circleCropTransform())
                     .into(useravatar)

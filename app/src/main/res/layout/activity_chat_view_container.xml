@@ -171,7 +171,7 @@
                                         android:layout_height="@dimen/_26pxh"
                                         android:layout_gravity="center"
                                         android:layout_marginStart="@dimen/_8pxh"
-                                        android:scaleType="fitXY"
+                                        android:scaleType="centerCrop"
                                         android:src="@drawable/img_home"
                                         tools:ignore="ContentDescription,ImageContrastCheck"
                                         tools:src="@drawable/img_home" />
@@ -184,7 +184,7 @@
                                         android:layout_marginStart="@dimen/_44pxh"
                                         android:layout_marginTop="@dimen/_5pxv"
                                         android:layout_marginBottom="@dimen/_5pxv"
-                                        android:scaleType="fitXY"
+                                        android:scaleType="centerCrop"
                                         android:src="@drawable/img_map"
                                         tools:ignore="ContentDescription,ImageContrastCheck"
                                         tools:src="@drawable/img_map" />
@@ -217,7 +217,7 @@
                                             android:scaleType="fitXY"
                                             android:src="@drawable/img_line1"
                                             tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
-                                            tools:src="@drawable/img_line1" />
+                                            tools:src="@drawable/img_line1"/>
                                     </FrameLayout>
 
                                     <ImageView
@@ -229,7 +229,7 @@
                                         android:layout_marginTop="@dimen/_5pxv"
                                         android:layout_marginEnd="@dimen/_5pxh"
                                         android:layout_marginBottom="@dimen/_5pxv"
-                                        android:scaleType="fitXY"
+                                        android:scaleType="centerCrop"
                                         android:src="@drawable/img_user"
                                         tools:ignore="ContentDescription,ImageContrastCheck"
                                         tools:src="@drawable/img_user" />

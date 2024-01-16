@@ -203,6 +203,7 @@
                 android:layout_marginEnd="@dimen/_30pxh"
                 android:layout_marginBottom="@dimen/_50pxh"
                 android:ellipsize="end"
+                android:fontFamily="@font/gta"
                 android:gravity="top"
                 android:singleLine="true"
                 android:text="@{votingViewVM.votingViewModel.txtGosowanie}"
@@ -250,6 +251,7 @@
                 android:singleLine="true"
                 android:text="@string/lbl_tak"
                 android:textAllCaps="true"
+                android:textColor="#176A00"
                 tools:text="@string/lbl_tak" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -270,6 +272,7 @@
                 android:singleLine="true"
                 android:text="@string/lbl_nie"
                 android:textAllCaps="true"
+                android:textColor="#9A0000"
                 tools:text="@string/lbl_nie" />
 
         </LinearLayout>

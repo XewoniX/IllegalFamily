@@ -22,6 +22,7 @@ data class Message(
     val timestamp: Long
 )
 var pole = ""
+var pole1 = ""
 val drawableResId = R.drawable.rectangle_gradient_s_grey_400_e_cyan_a202_radius_20
 var VIEW_TYPE_EMAIL_EXAMPLE = 0
 class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity.Message>) :
@@ -67,16 +68,13 @@ class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity
                     docRef.get()
                         .addOnSuccessListener { documentSnapshot ->
                             if (documentSnapshot.exists()) {
-
                                 val data = documentSnapshot.data
                                 if (data != null) {
                                     pole = data["name"].toString()
-
-                                    if (pole != null) {
-                                        println(pole)
-                                        holder.senderEmailTextView.text = "$pole"
-                                    }
-                                }
+                                    pole1 = data["car"].toString()
+                                    if (pole != null && pole1 !=null) {
+                                        holder.senderEmailTextView.text = "$pole ($pole1)"
+                                    }}
                             } else {
                                 println("Dokument nie istnieje")
                             }
@@ -91,20 +89,6 @@ class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity
                 println("Błąd podczas wykonywania zapytania: $e")
             }
         holder.messageContentTextView.text = message.messageContent
-
-
-
-    /*    if(email == message.senderEmail)
-        {
-            holder.senderEmailTextView.visibility = View.GONE
-            holder.messageFrame.setBackgroundResource(drawableResId)
-            val params = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            params.setMargins(0, 10, 100, 0,)
-            holder.messageFrame.setLayoutParams(params)
-        }*/
     }
     override fun getItemCount(): Int {
         return messages.size
