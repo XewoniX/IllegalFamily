@@ -3,6 +3,7 @@ package com.jakubsapplication.app.modules.homeview.ui
 
 import ItemAdapter
 import ItemModel
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -22,11 +23,18 @@ import com.jakubsapplication.app.modules.votingview.ui.VotingViewActivity
 import kotlin.String
 import kotlin.Unit
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.jakubsapplication.app.modules.mapview.ui.REQUEST_LOCATION_PERMISSION
 
 
 class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity_home_view) {
@@ -43,6 +51,12 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
+
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            REQUEST_LOCATION_PERMISSION
+        )
         val auth = FirebaseAuth.getInstance()
         val button = findViewById<FrameLayout>(R.id.buttonDelete)
         button.setOnClickListener {
