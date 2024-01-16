@@ -131,7 +131,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="@dimen/_15pxh"
                         android:layout_marginEnd="@dimen/_14pxh"
-                        android:background="@drawable/rectangle_bg_white_a700_26_radius_25">
+                        android:background="@drawable/rectangle_bg_white_a700_26_radius_30">
 
                         <TextView
                             android:id="@+id/datatxt"
@@ -172,7 +172,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="@dimen/_15pxh"
                         android:layout_marginEnd="@dimen/_14pxh"
-                        android:background="@drawable/rectangle_bg_white_a700_26_radius_25">
+                        android:background="@drawable/rectangle_bg_white_a700_26_radius_30">
 
                         <Button
                             android:id="@+id/button_change_car"
