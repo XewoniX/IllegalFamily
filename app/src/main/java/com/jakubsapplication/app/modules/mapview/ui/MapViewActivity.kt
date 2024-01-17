@@ -44,8 +44,9 @@ import java.util.Date
 
 const val REQUEST_LOCATION_PERMISSION = 1
 
-class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_map_view) {
-
+class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_map_view),
+    GoogleMap.OnMyLocationButtonClickListener {
+    private var isMyLocationEnabled = true
     private val viewModel: MapViewVM by viewModels<MapViewVM>()
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -56,6 +57,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
     private val handler = Handler(Looper.getMainLooper())
     private val odswiezanieRunnable: Runnable = object : Runnable {
         override fun run() {
+
             if(::mMap.isInitialized)
             {
                 mMap.clear()
@@ -103,7 +105,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                     // Obsłuż błąd pobierania danych
                 }
             // Ponowne uruchomienie Runnable po 30 sekundach
-            handler.postDelayed(this, 30000)
+            handler.postDelayed(this, 60000)
         }
     }
     private fun deleteDocument(documentId: String) {
@@ -132,6 +134,9 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             setupMap()
         }
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+
+
 }
 
 
@@ -149,6 +154,11 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync { googleMap ->
             mMap = googleMap
+            googleMap.setOnCameraMoveListener {
+                if(isMyLocationEnabled)
+                {disableMyLocation()
+                System.out.println("Wylaczono sledzenie")}
+            }
             googleMap.isMyLocationEnabled = true
             // googleMap.uiSettings.isCompassEnabled = true
             startLocationUpdates()
@@ -179,16 +189,33 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
                 }
             }
+            googleMap.setOnMyLocationButtonClickListener(this)
         }
-        mMap.setOnCameraMoveListener {
-            // Wyłączanie śledzenia lokalizacji po przesunięciu mapy
-            if(::mMap.isInitialized)
-            {
-                mMap.isMyLocationEnabled = false
-            }
+    }
+    override fun onMyLocationButtonClick(): Boolean {
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Tutaj umieść kod, który ma zostać wykonany po opóźnieniu
+            enableMyLocation()
+        }, 1000)
 
+        System.out.println("Rozpoczeto sledzenie")
+        return false
+    }
+    private fun enableMyLocation() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            isMyLocationEnabled = true
+            startLocationUpdates()
+        }, 2000)
+
+
+    }
+
+    private fun disableMyLocation() {
+        // Wyłączanie śledzenia lokalizacji
+        if (isMyLocationEnabled) {
+            isMyLocationEnabled = false
+            stopLocationUpdates()
         }
-
     }
     private val locationRequest: LocationRequest by lazy {
         LocationRequest.create().apply {
@@ -378,4 +405,6 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             return destIntent
         }
     }
+
+
 }
