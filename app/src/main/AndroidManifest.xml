@@ -37,7 +37,6 @@
             android:name="com.jakubsapplication.app.modules.jointogroupview.ui.JoinToGroupViewActivity" android:screenOrientation="portrait"/>
         <activity
             android:name="com.jakubsapplication.app.modules.mapview.ui.MapViewActivity" android:screenOrientation="portrait"
-            android:theme="@style/MyTheme">
             />
         <activity
             android:name="com.jakubsapplication.app.modules.votingview.ui.VotingViewActivity" android:screenOrientation="portrait"/>

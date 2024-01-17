@@ -27,15 +27,16 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 style="@style/btnGradientRoundedOutline_3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_40sp" />
 
             <ImageView
                 android:id="@+id/police_button"
-                android:layout_width="@dimen/_100sp"
-                android:layout_height="@dimen/_100sp"
+                android:layout_width="@dimen/_90sp"
+                android:layout_height="@dimen/_90sp"
                 android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/_5sp"
-                android:layout_marginTop="@dimen/_5sp"
+                android:layout_marginLeft="@dimen/_10sp"
+                android:layout_marginTop="@dimen/_10sp"
                 app:srcCompat="@drawable/policja" />
 
             <ImageView
@@ -57,7 +58,7 @@
 
                 <FrameLayout
                     android:id="@+id/frameStacksubtract"
-                    android:layout_width="@dimen/_359pxh"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_80pxv"
                     android:layout_gravity="bottom|start"
                     android:layout_marginTop="@dimen/_10pxv">
