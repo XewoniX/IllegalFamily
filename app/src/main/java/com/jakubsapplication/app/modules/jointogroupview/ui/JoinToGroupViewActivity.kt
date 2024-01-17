@@ -81,7 +81,8 @@ class JoinToGroupViewActivity :
             val adres_email: String,
             val name: String,
             val car: String,
-            val data: String
+            val data: String,
+            val qr: String
         )
 
 
@@ -122,7 +123,7 @@ class JoinToGroupViewActivity :
                                                 val (year, month, day) = getCurrentDate()
                                                 val collectionReference = db.collection("QRAuth")
                                                 val data = hashMapOf("adres_email" to email)
-                                                val account = email?.let { Account(it,firstName,"Uzupelnij swoj profil","$day.$month.$year") }
+                                                val account = email?.let { Account(it,firstName,"Uzupelnij swoj profil","$day.$month.$year",result.text) }
                                                 if (account != null) {
                                                     collectionReference.add(account)
                                                         .addOnSuccessListener { documentReference ->
