@@ -51,6 +51,9 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
     } else {
       setupMap()
     }
+
+
+
   }
   private fun requestLocationPermission() {
     ActivityCompat.requestPermissions(
