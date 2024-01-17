@@ -10,206 +10,207 @@
             type="com.jakubsapplication.app.modules.mapview.data.viewmodel.MapViewVM" />
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_5sp"
-        android:layout_marginEnd="@dimen/_5sp"
-        android:layout_marginBottom="@dimen/_140sp"
-        android:background="@drawable/rectangle_bg_white_a700_26_radius_30"
-        android:padding="@dimen/_20sp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="4dp">
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            style="@style/btnGradientRoundedOutline_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <ImageView
-            android:id="@+id/police_button"
-            android:layout_width="@dimen/_100sp"
-            android:layout_height="@dimen/_100sp"
-            android:layout_gravity="start"
-            app:srcCompat="@drawable/policja" />
-
-    </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/spot_button"
-        android:layout_width="@dimen/_100sp"
-        android:layout_height="@dimen/_100sp"
-        android:layout_gravity="right"
-        app:srcCompat="@drawable/spot" />
-
-    <ImageView
-        android:id="@+id/police_button2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sp"
-        android:layout_gravity="start"
-        app:srcCompat="@drawable/policja" />
-
     <FrameLayout
-        android:id="@+id/frameMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:keepScreenOn="true"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        android:background="#000000">
 
-        <FrameLayout
-            android:id="@+id/frameBottombar"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="@dimen/_18pxh"
-            android:layout_marginEnd="@dimen/_18pxh"
-            android:gravity="center_horizontal">
+            android:background="@drawable/rectangle_bg_white_a700_26_radius_30"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="4dp">
 
-            <LinearLayout
-                android:id="@+id/linearRow"
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                style="@style/btnGradientRoundedOutline_3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_5pxv"
-                android:layout_marginBottom="@dimen/_5pxv"
-                android:baselineAligned="false"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent">
-
-                <LinearLayout
-                    android:id="@+id/linearRowhome"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_weight="0.49"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imageHome"
-                        android:layout_width="@dimen/_24pxh"
-                        android:layout_height="@dimen/_26pxh"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_8pxh"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_home"
-                        tools:ignore="ContentDescription,ImageContrastCheck"
-                        tools:src="@drawable/img_home" />
-
-                    <ImageView
-                        android:id="@+id/imageMap"
-                        android:layout_width="@dimen/_24pxh"
-                        android:layout_height="@dimen/_26pxh"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_44pxh"
-                        android:layout_marginTop="@dimen/_5pxv"
-                        android:layout_marginBottom="@dimen/_5pxv"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_map"
-                        tools:ignore="ContentDescription,ImageContrastCheck"
-                        tools:src="@drawable/img_map" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearRowlineone"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_weight="0.49"
-                    android:orientation="horizontal">
-
-                    <FrameLayout
-                        android:id="@+id/frameCheckringligh"
-                        style="@style/groupStylecornerRadius_2"
-                        android:layout_width="@dimen/_24pxh"
-                        android:layout_height="@dimen/_26pxv"
-                        android:layout_marginStart="@dimen/_70pxv"
-                        android:layout_marginTop="@dimen/_8pxv"
-                        android:layout_marginBottom="@dimen/_5pxv">
-
-                        <ImageView
-                            android:id="@+id/imageLineOne"
-                            android:layout_width="@dimen/_13pxh"
-                            android:layout_height="@dimen/_10pxh"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/_10pxv"
-                            android:layout_marginBottom="@dimen/_10pxv"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_line1"
-                            tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
-                            tools:src="@drawable/img_line1" />
-                    </FrameLayout>
-
-                    <ImageView
-                        android:id="@+id/imageUser"
-                        android:layout_width="@dimen/_24pxh"
-                        android:layout_height="@dimen/_26pxh"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_38pxh"
-                        android:layout_marginTop="@dimen/_5pxv"
-                        android:layout_marginEnd="@dimen/_5pxh"
-                        android:layout_marginBottom="@dimen/_5pxv"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_user"
-                        tools:ignore="ContentDescription,ImageContrastCheck"
-                        tools:src="@drawable/img_user" />
-                </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameStacksubtract"
-            android:layout_width="@dimen/_359pxh"
-            android:layout_height="@dimen/_80pxv"
-            android:layout_gravity="bottom|start"
-            android:layout_marginTop="@dimen/_10pxv">
+                android:layout_height="match_parent" />
 
             <ImageView
-                android:id="@+id/imageSubtract"
-                imageRes="@{@drawable/img_subtract}"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40pxh"
-                android:layout_gravity="bottom|start"
-                android:scaleType="fitXY"
-                tools:ignore="ContentDescription"
-                tools:src="@drawable/img_subtract" />
+                android:id="@+id/police_button"
+                android:layout_width="@dimen/_100sp"
+                android:layout_height="@dimen/_100sp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sp"
+                android:layout_marginTop="@dimen/_5sp"
+                app:srcCompat="@drawable/policja" />
 
             <ImageView
-                android:id="@+id/imageLineFour"
-                android:layout_width="@dimen/_31pxh"
-                android:layout_height="@dimen/_3pxh"
+                android:id="@+id/spot_button"
+                android:layout_width="@dimen/_100sp"
+                android:layout_height="@dimen/_100sp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/_5sp"
+                android:layout_marginTop="@dimen/_110sp"
+                app:srcCompat="@drawable/spot" />
+
+            <FrameLayout
+                android:id="@+id/frameMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginStart="@dimen/_90pxh"
-                android:layout_marginTop="@dimen/_17pxv"
-                android:layout_marginEnd="@dimen/_23pxh"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_line4"
-                tools:ignore="ContentDescription,ImageContrastCheck"
-                tools:src="@drawable/img_line4" />
-        </FrameLayout>
+                android:keepScreenOn="true"
+                tools:ignore="MissingConstraints">
 
-        <View
-            android:id="@+id/viewEllipseSix"
-            android:layout_width="@dimen/_67pxh"
-            android:layout_height="@dimen/_65pxh"
-            android:layout_gravity="bottom|center"
-            android:layout_marginStart="@dimen/_144pxh"
-            android:layout_marginEnd="@dimen/_144pxh"
-            android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20" />
+                <FrameLayout
+                    android:id="@+id/frameStacksubtract"
+                    android:layout_width="@dimen/_359pxh"
+                    android:layout_height="@dimen/_80pxv"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginTop="@dimen/_10pxv">
 
-        <ImageView
-            android:id="@+id/imageMenu"
-            android:layout_width="@dimen/_27pxh"
-            android:layout_height="@dimen/_27pxh"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginStart="@dimen/_165pxh"
-            android:layout_marginTop="@dimen/_10pxv"
-            android:layout_marginEnd="@dimen/_165pxh"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_menu"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/img_menu" />
+                    <ImageView
+                        android:id="@+id/imageSubtract"
+                        imageRes="@{@drawable/img_subtract_dark}"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40pxh"
+                        android:layout_gravity="bottom|start"
+                        android:scaleType="fitXY"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_subtract_dark" />
+
+                    <ImageView
+                        android:id="@+id/imageLineFour"
+                        android:layout_width="@dimen/_31pxh"
+                        android:layout_height="@dimen/_3pxh"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="@dimen/_90pxh"
+                        android:layout_marginTop="@dimen/_17pxv"
+                        android:layout_marginEnd="@dimen/_23pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_line4"
+                        tools:ignore="ContentDescription,ImageContrastCheck"
+                        tools:src="@drawable/img_line4" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameBottombar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/_18pxh"
+                    android:layout_marginEnd="@dimen/_18pxh"
+                    android:gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linearRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5pxv"
+                        android:layout_marginBottom="@dimen/_5pxv"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        tools:ignore="UselessParent">
+
+                        <LinearLayout
+                            android:id="@+id/linearRowhome"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3pxv"
+                            android:layout_weight="0.49"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageHome"
+                                android:layout_width="@dimen/_24pxh"
+                                android:layout_height="@dimen/_26pxh"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_8pxh"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home"
+                                tools:ignore="ContentDescription,ImageContrastCheck"
+                                tools:src="@drawable/img_home" />
+
+                            <ImageView
+                                android:id="@+id/imageMap"
+                                android:layout_width="@dimen/_24pxh"
+                                android:layout_height="@dimen/_26pxh"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_44pxh"
+                                android:layout_marginTop="@dimen/_5pxv"
+                                android:layout_marginBottom="@dimen/_5pxv"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_map"
+                                tools:ignore="ContentDescription,ImageContrastCheck"
+                                tools:src="@drawable/img_map" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearRowlineone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3pxv"
+                            android:layout_weight="0.49"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:id="@+id/frameCheckringligh"
+                                style="@style/groupStylecornerRadius_2"
+                                android:layout_width="@dimen/_24pxh"
+                                android:layout_height="@dimen/_26pxv"
+                                android:layout_marginStart="@dimen/_70pxv"
+                                android:layout_marginTop="@dimen/_8pxv"
+                                android:layout_marginBottom="@dimen/_5pxv">
+
+                                <ImageView
+                                    android:id="@+id/imageLineOne"
+                                    android:layout_width="@dimen/_13pxh"
+                                    android:layout_height="@dimen/_10pxh"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_10pxv"
+                                    android:layout_marginBottom="@dimen/_10pxv"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_line1"
+                                    tools:ignore="ContentDescription,TooDeepLayout,ImageContrastCheck"
+                                    tools:src="@drawable/img_line1" />
+                            </FrameLayout>
+
+                            <ImageView
+                                android:id="@+id/imageUser"
+                                android:layout_width="@dimen/_24pxh"
+                                android:layout_height="@dimen/_26pxh"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_38pxh"
+                                android:layout_marginTop="@dimen/_5pxv"
+                                android:layout_marginEnd="@dimen/_5pxh"
+                                android:layout_marginBottom="@dimen/_5pxv"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_user"
+                                app:srcCompat="@drawable/img_user"
+                                tools:ignore="ContentDescription,ImageContrastCheck"
+                                tools:src="@drawable/img_user" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <View
+                    android:id="@+id/viewEllipseSix"
+                    android:layout_width="@dimen/_67pxh"
+                    android:layout_height="@dimen/_65pxh"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="@dimen/_144pxh"
+                    android:layout_marginEnd="@dimen/_144pxh"
+                    android:background="@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20" />
+
+                <ImageView
+                    android:id="@+id/imageMenu"
+                    android:layout_width="@dimen/_27pxh"
+                    android:layout_height="@dimen/_27pxh"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginStart="@dimen/_165pxh"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_165pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_menu"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_menu" />
+            </FrameLayout>
+
+        </androidx.cardview.widget.CardView>
+
     </FrameLayout>
 
 </layout>

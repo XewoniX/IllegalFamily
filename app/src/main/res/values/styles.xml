@@ -7,6 +7,10 @@
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
         <item name="android:background">@drawable/rectangle_gradient_s_white_400_e_cyan_a202_radius_20</item>
     </style>
+    <style name="MyTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
     <style name="groupStyle_1">
         <item name="android:background">@drawable/rectangle_dhi_0</item>
     </style>

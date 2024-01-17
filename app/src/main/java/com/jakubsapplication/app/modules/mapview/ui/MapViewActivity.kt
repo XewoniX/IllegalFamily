@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
@@ -40,10 +41,8 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
   override fun onInitialized() {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.mapViewVM = viewModel
-    window.decorView.systemUiVisibility =
-      View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-    window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
+   // window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+   // window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
     val locationPermission =
       ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
     if (locationPermission != PackageManager.PERMISSION_GRANTED) {
@@ -67,7 +66,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
     mapFragment.getMapAsync { googleMap ->
       mMap = googleMap
       googleMap.isMyLocationEnabled = true
-      googleMap.uiSettings.isCompassEnabled = true
+     // googleMap.uiSettings.isCompassEnabled = true
       startLocationUpdates()
 
       val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
