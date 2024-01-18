@@ -37,7 +37,18 @@
                 android:layout_gravity="start"
                 android:layout_marginLeft="@dimen/_10sp"
                 android:layout_marginTop="@dimen/_110sp"
-                app:srcCompat="@drawable/policja" />
+                app:srcCompat="@drawable/policja"/>
+
+            <ImageView
+                android:id="@+id/delete_button"
+                android:layout_width="@dimen/_40sp"
+                android:layout_height="@dimen/_40sp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_70sp"
+                android:layout_marginRight="@dimen/_14sp"
+                android:visibility="gone"
+                app:srcCompat="@drawable/deletedark"
+                tools:visibility="visible" />
 
             <ImageView
                 android:id="@+id/spot_button"

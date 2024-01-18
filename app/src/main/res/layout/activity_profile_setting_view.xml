@@ -283,7 +283,7 @@
                             android:layout_weight="0.55"
                             android:ellipsize="end"
                             android:singleLine="false"
-                            android:text="Wszelkie błędy aplikacji bądź propozycje aktualizacji wysyłajcie na illegal.family.brodnica.com bądź w wiadomości prywatnej."
+                            android:text="Wszelkie błędy aplikacji bądź propozycje aktualizacji wysyłajcie na Illegal.family.brodnica@gmail.com bądź w wiadomości prywatnej."
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#FFFFFF"

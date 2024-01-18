@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -27,7 +28,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.VisibleRegion
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
@@ -46,7 +49,11 @@ import java.util.Calendar
 import java.util.Date
 
 const val REQUEST_LOCATION_PERMISSION = 1
-
+var zmail = ""
+var ztitle = ""
+var zlat = 0.0
+var zlng = 0.0
+var znacznik: Marker? = null
 class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_map_view),
     GoogleMap.OnMyLocationButtonClickListener {
     val user = Firebase.auth.currentUser
@@ -89,7 +96,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                         val new = LatLng(Lan as Double, Long as Double)
                         if(documentData["Typ"] == "Policja") {
                             mMap.addMarker(
-                                MarkerOptions().position(new).title("Patrol").icon(
+                                MarkerOptions().position(new).title("Policja").icon(
                                     BitmapDescriptorFactory.fromResource(R.drawable.policjasmall)
                                 ).snippet("$email")
                             )
@@ -99,7 +106,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                             mMap.addMarker(
                                 MarkerOptions().position(new).title("Spot").icon(
                                     BitmapDescriptorFactory.fromResource(R.drawable.spotsmall)
-                                )
+                                ).snippet("$email")
                             )
                         }
                         else if(documentData["Typ"] == "Utrudnienia")
@@ -107,7 +114,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                             mMap.addMarker(
                                 MarkerOptions().position(new).title("Utrudnienia").icon(
                                     BitmapDescriptorFactory.fromResource(R.drawable.wypadeksmall)
-                                )
+                                ).snippet("$email")
                             )
                         }
                             System.out.println("pozycje to $new")
@@ -164,18 +171,28 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync { googleMap ->
             mMap = googleMap
+            var delete = findViewById<ImageView>(R.id.delete_button)
             googleMap.setOnCameraMoveListener {
+                delete.visibility = View.GONE
                 if(isMyLocationEnabled)
                 {disableMyLocation()
                 System.out.println("Wylaczono sledzenie")}
             }
+
             googleMap.setOnMarkerClickListener { marker ->
                 // Odczytanie niestandardowych danych z markera
-                val customMarkerData = marker.tag as? CustomMarkerData
-                if (customMarkerData != null) {
                     // Tutaj możesz wykorzystać niestandardowe informacje, ale nie wyświetlać ich użytkownikowi
-                    Toast.makeText(this, "Dodane przez: ${customMarkerData.addedBy}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "${marker.title}", Toast.LENGTH_SHORT).show()
+                if(marker.snippet == email) {
+                    delete.visibility = View.VISIBLE
+                    zmail = marker.snippet
+                    ztitle = marker.title
+                    zlat = marker.position.latitude
+                    zlng = marker.position.longitude
+                    znacznik = marker
                 }
+
+
                 true
             }
             googleMap.isMyLocationEnabled = true
@@ -356,6 +373,34 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             }
     }
     override fun setUpClicks() {
+        binding.deleteButton.setOnClickListener{
+            var delete = findViewById<ImageView>(R.id.delete_button)
+            delete.visibility = View.GONE
+            val firestore = FirebaseFirestore.getInstance()
+            firestore.collection("marki")
+                .whereEqualTo("Lat", zlat)
+                .whereEqualTo("Long", zlng)
+                .whereEqualTo("Typ", ztitle)
+                .whereEqualTo("email", zmail)
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        // Usuń znaleziony dokument
+                        document.reference.delete()
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Znacznik został poprawnie usunięty", Toast.LENGTH_SHORT).show()
+                                znacznik?.remove()
+                            }
+                            .addOnFailureListener { exception ->
+                                Toast.makeText(this, "Wystąpił błąd podczas usuwania znacznika", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    // Obsługa błędu
+                    // ...
+                }
+        }
         binding.policeButton.setOnClickListener {
             getLastLocation()
             val firestore = FirebaseFirestore.getInstance()
@@ -386,7 +431,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             mMap.addMarker(
                 MarkerOptions().position(new).title("Patrol").icon(
                     BitmapDescriptorFactory.fromResource(R.drawable.policjasmall)
-                )
+                ).snippet(email)
             )
         }
         binding.spotButton.setOnClickListener {
@@ -419,7 +464,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             mMap.addMarker(
                 MarkerOptions().position(new).title("Spot").icon(
                     BitmapDescriptorFactory.fromResource(R.drawable.spotsmall)
-                )
+                ).snippet(email)
             )
         }
         binding.wypadekButton.setOnClickListener {
@@ -452,7 +497,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             mMap.addMarker(
                 MarkerOptions().position(new).title("Utrudnienia").icon(
                     BitmapDescriptorFactory.fromResource(R.drawable.wypadeksmall)
-                )
+                ).snippet(email)
             )
         }
         binding.imageMenu.setOnClickListener {
