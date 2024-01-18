@@ -36,7 +36,6 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
             .requestIdToken(getString(R.string.existing_default_web_client_id))
             .requestEmail()
             .build()
-       // println("$tag" + getString(R.string.default_web_client_id))
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         val button = findViewById<Button>(R.id.btnZalogujPrzezGoogle)
@@ -74,7 +73,13 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
                     }
                 }
             } else {
-                startActivityForResult(signInIntent, RC_SIGN_IN)
+                try {
+                    startActivityForResult(signInIntent, RC_SIGN_IN)
+                    println("Użytkownik nie jest zalogowany.")
+                } catch (e: Exception) {
+                    // Obsłużenie błędów związanych z próbą rozpoczęcia aktywności logowania
+                    println("Błąd podczas rozpoczynania aktywności logowania: $e")
+                }
                 println("Użytkownik nie jest zalogowany.")
             }
         }
