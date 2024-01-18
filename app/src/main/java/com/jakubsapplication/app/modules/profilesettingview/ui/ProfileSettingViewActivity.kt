@@ -284,7 +284,7 @@ class ProfileSettingViewActivity :
 
     }
     override fun setUpClicks(): Unit {
-        binding.frameCheckringligh.setOnClickListener {
+        binding.imageLineOne.setOnClickListener {
             val destIntent = VotingViewActivity.getIntent(this, null)
             startActivity(destIntent)
         }

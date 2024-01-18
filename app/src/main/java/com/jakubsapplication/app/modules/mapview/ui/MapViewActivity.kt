@@ -11,6 +11,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
@@ -48,7 +49,6 @@ const val REQUEST_LOCATION_PERMISSION = 1
 
 class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_map_view),
     GoogleMap.OnMyLocationButtonClickListener {
-
     val user = Firebase.auth.currentUser
     val email = user?.email
     private var isMyLocationEnabled = true
@@ -85,12 +85,13 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                         val documentData = document.data
                         val Lan = documentData["Lat"]
                         val Long = documentData["Long"]
+                        val email = documentData["email"]
                         val new = LatLng(Lan as Double, Long as Double)
                         if(documentData["Typ"] == "Policja") {
                             mMap.addMarker(
                                 MarkerOptions().position(new).title("Patrol").icon(
                                     BitmapDescriptorFactory.fromResource(R.drawable.policjasmall)
-                                )
+                                ).snippet("$email")
                             )
                         }
                         else if(documentData["Typ"] == "Spot")
@@ -151,10 +152,6 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
 
 
 }
-
-
-
-
     private fun requestLocationPermission() {
         ActivityCompat.requestPermissions(
             this,
@@ -172,11 +169,37 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                 {disableMyLocation()
                 System.out.println("Wylaczono sledzenie")}
             }
+            googleMap.setOnMarkerClickListener { marker ->
+                // Odczytanie niestandardowych danych z markera
+                val customMarkerData = marker.tag as? CustomMarkerData
+                if (customMarkerData != null) {
+                    // Tutaj możesz wykorzystać niestandardowe informacje, ale nie wyświetlać ich użytkownikowi
+                    Toast.makeText(this, "Dodane przez: ${customMarkerData.addedBy}", Toast.LENGTH_SHORT).show()
+                }
+                true
+            }
             googleMap.isMyLocationEnabled = true
             // googleMap.uiSettings.isCompassEnabled = true
             startLocationUpdates()
-
+            var spot = findViewById<ImageView>(R.id.spot_button)
+            var policja = findViewById<ImageView>(R.id.police_button)
+            var wypadek = findViewById<ImageView>(R.id.wypadek_button)
+            val spotdarkmap = R.drawable.spot
+            val policjadarkmap = R.drawable.policja
+            val wypadekdarkmap = R.drawable.wypadek
+            val spotmap = R.drawable.spotb
+            val policjamap = R.drawable.policjab
+            val wypadekmap = R.drawable.wypadekb
             val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+            if (currentHour >= 16 || currentHour < 8) {
+                spot.setImageResource(spotdarkmap)
+                policja.setImageResource(policjadarkmap)
+                wypadek.setImageResource(wypadekdarkmap)
+            } else {
+                spot.setImageResource(spotmap)
+                policja.setImageResource(policjamap)
+                wypadek.setImageResource(wypadekmap)
+            }
             val mapStyle = if (currentHour >= 16 || currentHour < 8) {
                 R.raw.dark_map
             } else {
@@ -261,6 +284,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             return
         }
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null)
+        getLastLocation()
     }
 
     private fun stopLocationUpdates() {
@@ -434,7 +458,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
         binding.imageMenu.setOnClickListener {
             startActivity(ChatViewContainerActivity.getIntent(this, null))
         }
-        binding.frameCheckringligh.setOnClickListener {
+        binding.imageLineOne.setOnClickListener {
             startActivity(VotingViewActivity.getIntent(this, null))
         }
         binding.imageUser.setOnClickListener {

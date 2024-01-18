@@ -156,7 +156,7 @@ class HomeViewActivity : BaseActivity<ActivityHomeViewBinding>(R.layout.activity
             startActivity(destIntent)
             finish()
         }
-        binding.frameCheckringligh.setOnClickListener {
+        binding.imageLineOne.setOnClickListener {
             val destIntent = VotingViewActivity.getIntent(this, null)
             startActivity(destIntent)
         }
