@@ -41480,7 +41480,6 @@ com.google.android.gms.auth.api.signin.GoogleSignInAccount:
 com.google.android.gms.auth.api.signin.GoogleSignInApi
 com.google.android.gms.auth.api.signin.GoogleSignInClient:
     public static final com.google.firebase.heartbeatinfo.HeartBeatConsumerComponent$1 zbb
-    public static android.content.Intent getSignInIntent()
     public static com.google.android.gms.tasks.Task revokeAccess()
     public final com.google.android.gms.tasks.Task signOut()
 com.google.android.gms.auth.api.signin.GoogleSignInOptions$Builder
@@ -50811,9 +50810,9 @@ com.jakubsapplication.app.modules.jointogroupview.ui.JoinToGroupViewActivity$han
 com.jakubsapplication.app.modules.jointogroupview.ui.JoinToGroupViewActivity$handleResult$1$1$$InternalSyntheticLambda$1$ec62ab231e85b3ed9822138e3c6f7a451a9544fc79ae9e0c0ae1b3e73e70b14a$1
 com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$311fdedc6208531767ca8c91d1aa5927cdf42f884be7fc39c8c4083c05005b37$0
 com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$311fdedc6208531767ca8c91d1aa5927cdf42f884be7fc39c8c4083c05005b37$1
-com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$9ef765b2216766fd3d35b80cdff222ada68e012ebeae4902643eb89bc8e4c166$0
-com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$9ef765b2216766fd3d35b80cdff222ada68e012ebeae4902643eb89bc8e4c166$1
 com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$a58105536c0814bf3b08dbb780fd45a6f95581da48e99a19ec8b76ca7c24ca1a$0
+com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$d799c49e5afd0b018301e544394b982813d82b16c8295bfc8137fbdc33ce196e$0
+com.jakubsapplication.app.modules.loginview.ui.LoginViewActivity$$InternalSyntheticLambda$1$d799c49e5afd0b018301e544394b982813d82b16c8295bfc8137fbdc33ce196e$1
 com.jakubsapplication.app.modules.loginview.ui.LoginViewActivityKt:
     public static void <clinit>()
 com.jakubsapplication.app.modules.mapview.ui.MapViewActivity$$InternalSyntheticLambda$1$0db7c501d0a66f30dffb2b356e66b7378ba4d9696634f17f004b8208ec39cf32$0

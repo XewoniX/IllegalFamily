@@ -25,7 +25,7 @@ val tag = "[INFO_ID]"
 @Suppress("DEPRECATION")
 class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activity_login_view) {
     private val viewModel: LoginViewVM by viewModels()
-    private val RC_SIGN_IN = 12312123
+    private val RC_SIGN_IN = 234
     private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +33,14 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.existing_default_web_client_id))
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-
+        val googleSignInClient = GoogleSignIn.getClient(this,gso)
+        val user: FirebaseUser? = auth.currentUser
         val button = findViewById<Button>(R.id.btnZalogujPrzezGoogle)
         button.setOnClickListener {
-            val signInIntent = mGoogleSignInClient.signInIntent
-            val user: FirebaseUser? = auth.currentUser
+
 
             if (user != null) {
                 val providers = user.providerData
@@ -74,6 +73,7 @@ class LoginViewActivity : BaseActivity<ActivityLoginViewBinding>(R.layout.activi
                 }
             } else {
                 try {
+                    val signInIntent = googleSignInClient.signInIntent
                     startActivityForResult(signInIntent, RC_SIGN_IN)
                     println("Użytkownik nie jest zalogowany.")
                 } catch (e: Exception) {
