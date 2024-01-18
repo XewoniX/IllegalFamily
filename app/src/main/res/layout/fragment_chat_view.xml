@@ -65,34 +65,41 @@
             </LinearLayout>
         </FrameLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/txtSolidRoundedOutline"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="@dimen/_10pxv"
-            android:layout_marginRight="@dimen/_60pxv"
-            android:layout_marginBottom="@dimen/_75pxv"
-            android:lineSpacingExtra="8sp"
-            android:singleLine="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#FFFFFF"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:typeface="normal" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingBtnFloatingactionbutton"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginStart="@dimen/_25pxh"
-            android:layout_marginTop="@dimen/_106pxv"
-            android:layout_marginEnd="@dimen/_5pxh"
-            android:layout_marginBottom="@dimen/_87pxv"
-            android:backgroundTint="@color/white_A700_26"
-            app:fabCustomSize="@dimen/_40pxh"
-            app:srcCompat="@drawable/img_send"
-            app:tint="@color/white_A700" />
+            android:background="#000000">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingBtnFloatingactionbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginStart="@dimen/_25pxh"
+                android:layout_marginTop="@dimen/_106pxv"
+                android:layout_marginEnd="@dimen/_5pxh"
+                android:layout_marginBottom="@dimen/_87pxv"
+                android:background="@drawable/rectangle_bg_gray_900"
+                android:backgroundTint="@color/black"
+                app:fabCustomSize="@dimen/_40pxh"
+                app:srcCompat="@drawable/img_send"
+                app:tint="@color/white_A700" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/txtSolidRoundedOutline"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/_10pxv"
+                android:layout_marginBottom="@dimen/_75pxv"
+                android:lineSpacingExtra="8sp"
+                android:singleLine="false"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:typeface="normal" />
+        </androidx.cardview.widget.CardView>
+
     </FrameLayout>
 </layout>

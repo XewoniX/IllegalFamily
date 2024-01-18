@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
@@ -23,6 +24,7 @@ data class Message(
 )
 var pole = ""
 var pole1 = ""
+var pole2 = ""
 val drawableResId = R.drawable.rectangle_gradient_s_grey_400_e_cyan_a202_radius_20
 var VIEW_TYPE_EMAIL_EXAMPLE = 0
 class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity.Message>) :
@@ -60,6 +62,8 @@ class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity
         val db = FirebaseFirestore.getInstance()
         val kolekcjaRef = db.collection("QRAuth")
         val zapytanie = kolekcjaRef.whereEqualTo("adres_email", message.senderEmail)
+        val kolekcjaRef1 = db.collection("Adm")
+        val zapytanie1 = kolekcjaRef1.whereEqualTo("adres_email", message.senderEmail)
         zapytanie.get()
             .addOnSuccessListener { querySnapshot ->
                 for (document in querySnapshot.documents) {
@@ -74,6 +78,31 @@ class MessageAdapter(private val messages: MutableList<ChatViewContainerActivity
                                     pole1 = data["car"].toString()
                                     if (pole != null && pole1 !=null) {
                                         holder.senderEmailTextView.text = "$pole ($pole1)"
+                                        zapytanie1.get()
+                                            .addOnSuccessListener { querySnapshot ->
+                                                for (document in querySnapshot.documents) {
+                                                    val idDokumentu = document.id
+                                                    val docRef = db.collection("Adm").document(idDokumentu)
+                                                    docRef.get()
+                                                        .addOnSuccessListener { documentSnapshot ->
+                                                            if (documentSnapshot.exists()) {
+                                                                val data = documentSnapshot.data
+                                                                if (data != null) {
+                                                                    holder.senderEmailTextView.setTextColor(0xFFFFD700.toInt())
+                                                                    }
+                                                            } else {
+                                                                println("Dokument nie istnieje")
+                                                            }
+                                                        }
+                                                        .addOnFailureListener { e ->
+                                                            println("Błąd pobierania dokumentu: $e")
+                                                        }
+                                                    println("ID dokumentu: $idDokumentu")
+                                                }
+                                            }
+                                            .addOnFailureListener { e ->
+                                                println("Błąd podczas wykonywania zapytania: $e")
+                                            }
                                     }}
                             } else {
                                 println("Dokument nie istnieje")

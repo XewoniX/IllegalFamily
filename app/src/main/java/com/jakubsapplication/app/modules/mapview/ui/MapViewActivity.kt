@@ -27,6 +27,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FieldValue
@@ -46,6 +48,9 @@ const val REQUEST_LOCATION_PERMISSION = 1
 
 class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_map_view),
     GoogleMap.OnMyLocationButtonClickListener {
+
+    val user = Firebase.auth.currentUser
+    val email = user?.email
     private var isMyLocationEnabled = true
     private val viewModel: MapViewVM by viewModels<MapViewVM>()
     private lateinit var mMap: GoogleMap
@@ -88,11 +93,19 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                                 )
                             )
                         }
-                        else
+                        else if(documentData["Typ"] == "Spot")
                         {
                             mMap.addMarker(
                                 MarkerOptions().position(new).title("Spot").icon(
                                     BitmapDescriptorFactory.fromResource(R.drawable.spotsmall)
+                                )
+                            )
+                        }
+                        else if(documentData["Typ"] == "Utrudnienia")
+                        {
+                            mMap.addMarker(
+                                MarkerOptions().position(new).title("Utrudnienia").icon(
+                                    BitmapDescriptorFactory.fromResource(R.drawable.wypadeksmall)
                                 )
                             )
                         }
@@ -104,7 +117,7 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                 .addOnFailureListener { exception ->
                     // Obsłuż błąd pobierania danych
                 }
-            // Ponowne uruchomienie Runnable po 30 sekundach
+            // Ponowne uruchomienie Runnable po 60 sekundach
             handler.postDelayed(this, 60000)
         }
     }
@@ -331,7 +344,8 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                     "Typ" to "Policja",
                     "Lat" to currentLatitude,
                     "Long" to currentLongitude,
-                    "timestamp" to FieldValue.serverTimestamp()
+                    "timestamp" to FieldValue.serverTimestamp(),
+                    "email" to email
                 )
                 // Dodanie nowego dokumentu do kolekcji
                 firestore.collection(collectionName).add(newData)
@@ -363,7 +377,8 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
                     "Typ" to "Spot",
                     "Lat" to currentLatitude,
                     "Long" to currentLongitude,
-                    "timestamp" to FieldValue.serverTimestamp()
+                    "timestamp" to FieldValue.serverTimestamp(),
+                    "email" to email
                 )
                 // Dodanie nowego dokumentu do kolekcji
                 firestore.collection(collectionName).add(newData)
@@ -380,6 +395,39 @@ class MapViewActivity : BaseActivity<ActivityMapViewBinding>(R.layout.activity_m
             mMap.addMarker(
                 MarkerOptions().position(new).title("Spot").icon(
                     BitmapDescriptorFactory.fromResource(R.drawable.spotsmall)
+                )
+            )
+        }
+        binding.wypadekButton.setOnClickListener {
+            getLastLocation()
+            val firestore = FirebaseFirestore.getInstance()
+            if (currentLatitude != 0.0 && currentLongitude != 0.0) {
+                Toast.makeText(this,"Znacznik zapisany pomyślnie.", Toast.LENGTH_SHORT).show()
+                // Nazwa kolekcji, w której chcesz dodać dokument
+                val collectionName = "marki"
+                // Dane do zapisania
+                val newData = hashMapOf(
+                    "Typ" to "Utrudnienia",
+                    "Lat" to currentLatitude,
+                    "Long" to currentLongitude,
+                    "timestamp" to FieldValue.serverTimestamp(),
+                    "email" to email
+                )
+                // Dodanie nowego dokumentu do kolekcji
+                firestore.collection(collectionName).add(newData)
+                    .addOnSuccessListener { documentReference ->
+                        println("Nowy dokument został pomyślnie dodany. ID dokumentu: ${documentReference.id}")
+                    }
+                    .addOnFailureListener { e ->
+                        println("Wystąpił błąd: ${e.message}")
+                    }
+            } else {
+                Toast.makeText(this, "Poczekaj na załadowanie lokalizacji", Toast.LENGTH_SHORT).show()
+            }
+            val new = LatLng(currentLatitude as Double, currentLongitude as Double)
+            mMap.addMarker(
+                MarkerOptions().position(new).title("Utrudnienia").icon(
+                    BitmapDescriptorFactory.fromResource(R.drawable.wypadeksmall)
                 )
             )
         }
